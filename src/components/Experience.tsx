@@ -24,17 +24,6 @@ const experiences: ExperienceEntry[] = [
         ],
     },
     {
-        title: "Flutter Developer",
-        company: "UIU Developers Hub",
-        location: "United International University",
-        date: "February 2024 – present",
-        bullets: [
-            "Collaborated in a 5–6 member developer team on Flutter-based academic and demo projects",
-            "Built multiple feature modules using widgets, navigation, and basic state management",
-            "Used Git-based workflows for version control, pull requests, and peer reviews",
-        ],
-    },
-    {
         title: "Flutter Developer (Freelance – Top Rated)",
         company: "Upwork",
         location: "Remote",
