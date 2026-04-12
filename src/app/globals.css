@@ -21,6 +21,16 @@
   /* Spacing */
   --section-gap: 1rem;
   --content-padding: 1.5rem;
+
+  /* Showcase Accents */
+  --color-navy-50: #f0f4f8;
+  --color-gold-muted: rgba(201, 168, 74, 0.1);
+}
+
+@theme {
+  --color-gold: var(--color-gold);
+  --color-navy: var(--color-navy);
+  --color-navy-50: var(--color-navy-50);
 }
 
 * {

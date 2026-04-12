@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, Linkedin, Github, Globe } from "lucide-react";
+import Link from "next/link";
 
 export default function Header() {
     return (
@@ -49,6 +50,15 @@ export default function Header() {
                     <Globe size={14} />
                     azizurrahaman.com
                 </a>
+            </div>
+            <div className="flex justify-center mt-6">
+                <Link
+                    href="/products"
+                    className="flex items-center gap-2 px-6 py-2 bg-navy text-white rounded-full font-bold hover:bg-gold transition-colors text-sm"
+                >
+                    <Globe size={14} />
+                    View My Products
+                </Link>
             </div>
         </header>
     );
