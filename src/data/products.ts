@@ -13,6 +13,8 @@ export interface Product {
   link?: string;
   logo?: string;
   category: "Mobile App" | "Web App" | "SaaS";
+  banner?: string;
+  screenshots?: string[];
 }
 
 export const products: Product[] = [
@@ -21,56 +23,77 @@ export const products: Product[] = [
     slug: "lenden",
     name: "Lenden",
     logo: "/images/products/lenden-logo.png",
-    tagline: "Secure Peer-to-Peer Financial Management",
-    description: "A minimalist yet powerful Flutter application designed to simplify personal lending, borrowing, and savings tracking. Lenden combines bank-grade security with an intuitive financial dashboard.",
+    tagline: "Simplified Peer-to-Peer Financial Ecosystem",
+    description: "Lenden is a high-performance financial management application designed for the modern user. It streamlines personal lending, borrowing, and savings tracking with a focus on bank-grade security and intuitive data visualization. Built with Flutter and a robust cloud architecture, Lenden ensures your financial records are always secure and accessible.",
     category: "Mobile App",
-    techStack: ["Flutter", "Riverpod", "Firebase", "Isar DB", "Cloudflare R2", "Brevo API"],
+    techStack: ["Flutter", "BLoC", "Clean Architecture", "Firebase", "ObjectBox", "Cloudflare R2"],
+    banner: "/images/products/lenden/lenden-feature-image.png",
+    screenshots: [
+      "/images/products/lenden/Untitled design.png",
+      "/images/products/lenden/Dashboard.png",
+      "/images/products/lenden/lenden-budget.png"
+    ],
     features: [
       {
-        title: "Secure PIN Reset",
-        description: "Robust 3-step security flow featuring email OTP verification via Brevo and 4-digit code lifecycle management.",
+        title: "Biometric Security",
+        description: "Advanced 4-digit PIN and optional biometric authorization for all sensitive transactions and account access.",
         icon: "ShieldCheck"
       },
       {
-        title: "Smart Analytics",
-        description: "Real-time Net Balance calculation, monthly trends visualization, and detailed saving source distribution charts.",
+        title: "Intelligent Analytics",
+        description: "Dynamic dashboards with real-time net balance tracking, monthly expenditure trends, and source distribution analytics.",
         icon: "BarChart3"
       },
       {
-        title: "Transaction Security",
-        description: "Mandatory PIN authorization for all peer-to-peer transfers, ensuring every transaction is explicitly verified.",
+        title: "Ledger Management",
+        description: "Effortless tracking of peer-to-peer debts and credits with automated reminders and settlement workflows.",
         icon: "Lock"
       },
       {
-        title: "Vault Savings",
-        description: "Specialized savings module with category-based tracking (Salary, Business, Investment) and goals.",
+        title: "Smart Savings Vault",
+        description: "Goal-oriented savings module that categorizes your sources (Salary, Business, Investments) for better visibility.",
         icon: "Vault"
+      },
+      {
+        title: "Cloud Infrastructure",
+        description: "Seamless real-time data synchronization and secure cloud backups powered by Firebase.",
+        icon: "Cloud"
+      },
+      {
+        title: "Localization",
+        description: "Full multi-language support (English & Bengali) for a truly native financial experience.",
+        icon: "Languages"
+      },
+      {
+        title: "Smart Attachments",
+        description: "Digitalize your records by attaching photos and documents to any transaction via Cloudflare R2.",
+        icon: "Paperclip"
       }
     ],
-    link: "https://github.com/azizur-rahaman/lenden"
+    link: "https://play.google.com/store/apps/details?id=com.algoel.lenden"
   },
   {
     id: "zabihaty",
     slug: "zabihaty",
     name: "Zabihaty",
-    tagline: "E-Commerce & Event Catering Redefined",
-    description: "A comprehensive e-commerce solution specialized in meat products and event catering. Built with a focus on session security and clean architecture.",
+    tagline: "Premium E-Commerce & Catering Experience",
+    description: "Zabihaty redefines the meat and catering e-commerce landscape with a seamless mobile experience. It leverages clean architecture and advanced session management to provide users with a secure and fluid ordering process for premium products and events.",
     category: "Mobile App",
     techStack: ["Flutter", "Riverpod", "REST APIs", "JWT", "Dio", "Clean Architecture"],
     features: [
       {
-        title: "Session Management",
-        description: "Advanced JWT authentication with secure Refresh-Token rotation for long-lived user sessions.",
+        title: "Secure Session Roaming",
+        description: "Advanced JWT authentication with secure refresh-token rotation ensuring long-lived yet protected user sessions.",
         icon: "UserCheck"
       },
       {
-        title: "Order Tracking",
-        description: "Real-time status updates for catering orders and product deliveries.",
+        title: "Real-time Logistics",
+        description: "Live order tracking system that keeps users informed from the moment of catering request to final delivery.",
         icon: "ShoppingBag"
       },
       {
-        title: "Clean Architecture",
-        description: "Highly maintainable solid code structure separated by Data, Domain, and Presentation layers.",
+        title: "Scalable Architecture",
+        description: "Built using SOLID principles and Clean Architecture (Data, Domain, Presentation) for maximum maintainability.",
         icon: "Layers"
       }
     ],

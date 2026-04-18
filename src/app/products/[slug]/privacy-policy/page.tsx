@@ -11,7 +11,7 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
     notFound();
   }
 
-  const lastUpdated = "April 12, 2026";
+  const lastUpdated = "April 18, 2026";
 
   return (
     <div className="min-h-screen bg-white text-gray-800">
@@ -72,14 +72,21 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
               <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Third-Party Services</h2>
               <p className="mb-4">We integrate with a limited number of trusted third-party providers to ensure app functionality:</p>
               <ul className="list-disc pl-6 space-y-2">
-                <li><strong>Google Firebase:</strong> Used for authentication, cloud database (Firestore), and push notifications.</li>
+                <li><strong>Google Firebase:</strong> Used for authentication, cloud database (Firestore), and push notifications (Firebase Messaging).</li>
                 <li><strong>Cloudflare R2:</strong> Used for secure storage of user-uploaded images and avatars.</li>
                 <li><strong>Brevo (formerly Sendinblue):</strong> Used for delivering transactional emails and security OTPs.</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Data Deletion and Retention</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Push Notifications</h2>
+              <p className="leading-relaxed">
+                With your consent, we may send you push notifications regarding your transactions, security alerts, and account updates. You can manage these notifications through your device settings at any time.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Data Deletion and Retention</h2>
               <p className="leading-relaxed">
                 We believe you should have full control over your data. You may delete your account and all associated personal and transactional data at any time through the app settings. Once deleted, this data is <strong>permanently removed</strong> from our servers and cannot be recovered.
               </p>
@@ -93,7 +100,21 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Contact Us</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Children's Privacy</h2>
+              <p className="leading-relaxed">
+                Lenden does not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and you are aware that your child has provided us with personal data, please contact us.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Changes to This Policy</h2>
+              <p className="leading-relaxed">
+                We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Contact Us</h2>
               <p className="leading-relaxed">
                 If you have any questions or concerns about this Privacy Policy, please contact us at:
               </p>

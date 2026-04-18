@@ -10,7 +10,10 @@ import {
   UserCheck, 
   ShoppingBag, 
   Layers,
-  Smartphone
+  Smartphone,
+  Cloud,
+  Languages,
+  Paperclip
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -24,7 +27,10 @@ const IconMap: Record<string, any> = {
   Vault,
   UserCheck,
   ShoppingBag,
-  Layers
+  Layers,
+  Cloud,
+  Languages,
+  Paperclip
 };
 
 export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -88,6 +94,50 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           </p>
         </div>
       </header>
+
+      {/* Visual Gallery */}
+      {(product.banner || (product.screenshots && product.screenshots.length > 0)) && (
+        <section className="py-24 px-6 border-b border-gray-100 bg-gray-50/30">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl font-black text-gray-900 mb-16 text-center">Interface Showcase</h2>
+            
+            <div className="overflow-hidden rounded-3xl shadow-2xl border border-gray-100">
+              {/* Feature Banner */}
+              {product.banner && (
+                <div className="relative w-full aspect-[16/9]">
+                  <Image 
+                    src={product.banner} 
+                    alt={`${product.name} Feature Banner`} 
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              )}
+
+              {/* Screenshot Grid - Seamless */}
+              {product.screenshots && product.screenshots.length > 0 && (
+                <div className="grid grid-cols-1 md:grid-cols-3">
+                  {product.screenshots.map((screenshot, index) => (
+                    <div 
+                      key={index} 
+                      className="group relative aspect-[9/16] overflow-hidden border-t md:border-t-0 md:border-r last:border-r-0 border-gray-100"
+                    >
+                      <Image 
+                        src={screenshot} 
+                        alt={`${product.name} Screenshot ${index + 1}`} 
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/5 transition-colors duration-500" />
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Features Grid */}
       <section className="py-24 px-6">
