@@ -23,8 +23,8 @@ export const products: Product[] = [
     slug: "lenden",
     name: "Lenden",
     logo: "/images/products/lenden-logo.png",
-    tagline: "Simplified Peer-to-Peer Financial Ecosystem",
-    description: "Lenden is a high-performance financial management application designed for the modern user. It streamlines personal lending, borrowing, and savings tracking with a focus on bank-grade security and intuitive data visualization. Built with Flutter and a robust cloud architecture, Lenden ensures your financial records are always secure and accessible.",
+    tagline: "Intelligent Peer-to-Peer Finance & Budgeting",
+    description: "Lenden is an advanced financial ecosystem that goes beyond simple debt tracking. It combines peer-to-peer ledger management with a powerful wallet system and an intelligent budget planner. Featuring real-time income/expense analysis, daily spending allowance calculations, and bank-grade security, Lenden empowers users to take full control of their financial health across multiple devices.",
     category: "Mobile App",
     techStack: ["Flutter", "BLoC", "Clean Architecture", "Firebase", "ObjectBox", "Cloudflare R2"],
     banner: "/images/products/lenden/lenden-feature-image.png",
@@ -40,19 +40,24 @@ export const products: Product[] = [
         icon: "ShieldCheck"
       },
       {
-        title: "Intelligent Analytics",
-        description: "Dynamic dashboards with real-time net balance tracking, monthly expenditure trends, and source distribution analytics.",
+        title: "Wallet Management",
+        description: "Sophisticated wallet system with separate tracking for income and expenses, providing a clear picture of your net worth.",
+        icon: "Wallet"
+      },
+      {
+        title: "Intelligent Budgeting",
+        description: "A smart budget planner that calculates your daily spending allowance to ensure your funds last through the month.",
+        icon: "Calendar"
+      },
+      {
+        title: "Dynamic Dashboards",
+        description: "Real-time net balance tracking, monthly expenditure trends, and source distribution analytics with high-performance visualization.",
         icon: "BarChart3"
       },
       {
         title: "Ledger Management",
         description: "Effortless tracking of peer-to-peer debts and credits with automated reminders and settlement workflows.",
         icon: "Lock"
-      },
-      {
-        title: "Smart Savings Vault",
-        description: "Goal-oriented savings module that categorizes your sources (Salary, Business, Investments) for better visibility.",
-        icon: "Vault"
       },
       {
         title: "Cloud Infrastructure",
@@ -63,11 +68,6 @@ export const products: Product[] = [
         title: "Localization",
         description: "Full multi-language support (English & Bengali) for a truly native financial experience.",
         icon: "Languages"
-      },
-      {
-        title: "Smart Attachments",
-        description: "Digitalize your records by attaching photos and documents to any transaction via Cloudflare R2.",
-        icon: "Paperclip"
       }
     ],
     link: "https://play.google.com/store/apps/details?id=com.algoel.lenden"
