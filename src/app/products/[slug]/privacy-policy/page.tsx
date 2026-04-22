@@ -11,7 +11,7 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
     notFound();
   }
 
-  const lastUpdated = "April 18, 2026";
+  const lastUpdated = "April 21, 2026";
 
   return (
     <div className="min-h-screen bg-white text-gray-800">
@@ -38,7 +38,7 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
 
           {/* Content */}
           <div className="space-y-12 prose prose-gray max-w-none">
-            
+
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Introduction</h2>
               <p className="leading-relaxed">
@@ -48,10 +48,11 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
 
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Information We Collect</h2>
-              <p className="mb-4">To provide our peer-to-peer financial services, we collect the following types of information:</p>
+              <p className="mb-4">To provide our peer-to-peer financial services, we collect or access the following types of information:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li><strong>Account Information:</strong> Name, email address, and phone number provided during registration (Verified via OTP).</li>
-                <li><strong>Transaction Data:</strong> Records of lending and borrowing, including amounts, dates, participant names, and optional notes.</li>
+                <li><strong>Contact Information:</strong> With your explicit permission, we access your device&apos;s contact list to help you quickly find and add participants to your ledger. We do not store your entire contact list on our servers; only the specific contact you choose to add is recorded in your personal ledger.</li>
+                <li><strong>Transaction Data:</strong> Records of lending and borrowing, including amounts, dates, participant names, and phone numbers.</li>
                 <li><strong>User Media:</strong> Profile pictures or avatars uploaded by the user.</li>
                 <li><strong>Device Information:</strong> Unique device identifiers and operating system version for security and messaging purposes.</li>
               </ul>
