@@ -7,15 +7,16 @@ export default function WorkSection() {
   return (
     <section id="work" aria-labelledby="heading-work" className="pb-16 sm:pb-20">
       <div id="heading-work" className="sr-only">
-        Selected Work
+        Selected Work and Shipped Apps
       </div>
       <SectionHeader
         index="01"
         title="Work"
-        actionLabel="All products"
+        actionLabel="All 11 products"
         actionHref="/products"
       />
 
+      {/* Featured Flagship Apps */}
       <div className="space-y-9">
         {portfolioData.work.map((item) => {
           const isLive = item.status === "Live";
@@ -106,6 +107,70 @@ export default function WorkSection() {
             </article>
           );
         })}
+      </div>
+
+      {/* Complete Index of Remaining Shipped Apps */}
+      <div className="mt-12 pt-8 border-t border-[var(--color-border-muted)]">
+        <div className="flex items-baseline justify-between gap-4 mb-4">
+          <h3 className="text-[12px] font-medium uppercase tracking-wider text-[var(--color-text-secondary)]">
+            More Shipped Apps — Algoel Studio
+          </h3>
+          <a
+            href={portfolioData.profile.googlePlayDev}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-[12px] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+          >
+            <span>Google Play</span>
+            <ArrowUpRight size={11} aria-hidden="true" />
+          </a>
+        </div>
+
+        <ul className="divide-y divide-[var(--color-border-muted)] list-none p-0 m-0">
+          {portfolioData.moreApps.map((app) => (
+            <li
+              key={app.slug}
+              className="py-3.5 first:pt-1 last:pb-0 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1.5 sm:gap-4"
+            >
+              <div className="min-w-0">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <Link
+                    href={`/products/${app.slug}`}
+                    className="inline-flex items-center gap-1 text-[15px] leading-[22px] font-medium text-[var(--color-text-primary)] hover:underline underline-offset-4"
+                  >
+                    <span>{app.name}</span>
+                    <ArrowUpRight
+                      size={13}
+                      className="text-[var(--color-text-secondary)]"
+                      aria-hidden="true"
+                    />
+                  </Link>
+                  <span className="font-mono text-[11px] text-[var(--color-text-secondary)]">
+                    {app.stack}
+                  </span>
+                </div>
+                <p className="text-[13px] leading-[20px] text-[var(--color-text-secondary)] mt-0.5">
+                  {app.tagline}
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3 shrink-0">
+                <a
+                  href={app.playStoreUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-0.5 text-[12px] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+                >
+                  <span>Play</span>
+                  <ArrowUpRight size={11} aria-hidden="true" />
+                </a>
+                <span className="font-mono text-[12px] text-[var(--color-text-secondary)] tabular-nums">
+                  {app.year}
+                </span>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

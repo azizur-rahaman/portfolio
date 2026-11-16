@@ -5,6 +5,7 @@ import {
   ArrowLeft,
   ArrowUpRight,
   BarChart3,
+  BookOpen,
   Calendar,
   Cloud,
   Globe,
@@ -15,6 +16,7 @@ import {
   ShieldCheck,
   ShoppingBag,
   Smartphone,
+  Sparkles,
   UserCheck,
   Wallet,
   type LucideIcon,
@@ -27,11 +29,13 @@ import SectionHeader from "@/components/SectionHeader";
 const IconMap: Record<string, LucideIcon> = {
   ShieldCheck,
   BarChart3,
+  BookOpen,
   Lock,
   Wallet,
   Calendar,
   UserCheck,
   ShoppingBag,
+  Sparkles,
   Layers,
   Cloud,
   Languages,
@@ -71,14 +75,14 @@ export default async function ProductDetailPage({
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-[6px] bg-[var(--color-surface-inverse)] text-[var(--color-text-inverse)] text-[13px] font-medium hover:opacity-90 transition-opacity"
             >
-              <span>View on Store</span>
+              <span>View on Google Play</span>
               <ArrowUpRight size={13} aria-hidden="true" />
             </a>
           )}
         </div>
 
         {/* Product Header */}
-        <header className="pb-12 border-b border-[var(--color-border-default)]">
+        <header className="pb-10 border-b border-[var(--color-border-default)]">
           <div className="flex items-center gap-4 mb-6">
             {product.logo && (
               <div className="w-16 h-16 rounded-xl bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] p-2.5 flex items-center justify-center shrink-0 overflow-hidden">
@@ -93,11 +97,15 @@ export default async function ProductDetailPage({
             )}
 
             <div>
-              <span className="inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-[var(--color-text-secondary)]">
-                <Smartphone size={12} aria-hidden="true" />
-                {product.category}
-              </span>
-              <h1 className="text-[32px] sm:text-[40px] leading-[1.1] font-medium tracking-[-0.03em] text-[var(--color-text-primary)] mt-1">
+              <div className="flex flex-wrap items-center gap-2 text-[11px] font-mono uppercase tracking-wider text-[var(--color-text-secondary)]">
+                <span className="inline-flex items-center gap-1">
+                  <Smartphone size={12} aria-hidden="true" />
+                  {product.category}
+                </span>
+                {product.releaseYear && <span>· {product.releaseYear}</span>}
+                {product.rating && <span>· {product.rating}</span>}
+              </div>
+              <h1 className="text-[30px] sm:text-[40px] leading-[1.1] font-medium tracking-[-0.03em] text-[var(--color-text-primary)] mt-1">
                 {product.name}
               </h1>
             </div>
@@ -109,6 +117,24 @@ export default async function ProductDetailPage({
           <p className="text-[15px] leading-[24px] text-[var(--color-text-secondary)]">
             {product.description}
           </p>
+
+          {(product.platforms || product.badge) && (
+            <div className="flex flex-wrap items-center gap-2 mt-5">
+              {product.badge && (
+                <span className="px-2.5 py-1 text-[11px] font-medium text-[var(--color-status-live)] bg-[var(--color-pill-green-bg)] border border-[var(--color-pill-green-border)] rounded-[4px]">
+                  {product.badge}
+                </span>
+              )}
+              {product.platforms?.map((platform) => (
+                <span
+                  key={platform}
+                  className="px-2.5 py-1 text-[11px] font-mono text-[var(--color-text-secondary)] bg-[var(--color-surface-raised)] border border-[var(--color-border-muted)] rounded-[4px]"
+                >
+                  {platform}
+                </span>
+              ))}
+            </div>
+          )}
         </header>
 
         {/* Visual Showcase */}
@@ -130,7 +156,11 @@ export default async function ProductDetailPage({
               )}
 
               {product.screenshots && product.screenshots.length > 0 && (
-                <div className="grid grid-cols-1 sm:grid-cols-3 border-t border-[var(--color-border-muted)]">
+                <div
+                  className={`grid grid-cols-1 ${
+                    product.screenshots.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3"
+                  } ${product.banner ? "border-t border-[var(--color-border-muted)]" : ""}`}
+                >
                   {product.screenshots.map((screenshot, index) => (
                     <div
                       key={screenshot}
@@ -168,9 +198,9 @@ export default async function ProductDetailPage({
                       className="text-[var(--color-text-primary)] shrink-0"
                       aria-hidden="true"
                     />
-                    <h3 className="text-[15px] font-medium text-[var(--color-text-primary)]">
+                    <h2 className="text-[15px] font-medium text-[var(--color-text-primary)]">
                       {feature.title}
-                    </h3>
+                    </h2>
                   </div>
                   <p className="text-[13px] leading-[21px] text-[var(--color-text-secondary)]">
                     {feature.description}

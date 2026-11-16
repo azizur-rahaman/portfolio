@@ -41,38 +41,55 @@ export default function Hero() {
       {/* Structured Bio Paragraphs */}
       <div className="space-y-4 text-[16px] leading-[26px] text-[var(--color-text-primary)]">
         <p>
-          I&apos;m a Flutter developer in Dhaka with hands-on experience shipping{" "}
-          <span className="font-medium">3+ production-ready mobile applications</span>.
+          I&apos;m a Flutter developer in Dhaka shipping production mobile applications.
           Previously at{" "}
           <span className="inline-chip inline-chip--green">
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-status-live)]" aria-hidden="true" />
             Zabihaty LLC
           </span>
-          , I engineered cross-platform apps with shared codebases, implemented{" "}
+          , I maintained 3 cross-platform apps, implemented{" "}
           <span className="font-medium">90+ Figma UI screens</span>, and integrated{" "}
           <span className="font-medium">15+ REST APIs</span>.
         </p>
 
         <p>
-          I built{" "}
-          <Link
-            href="/products/lenden"
+          Under{" "}
+          <a
+            href={profile.googlePlayDev}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-chip inline-chip--blue hover:opacity-85 transition-opacity"
           >
+            Algoel
+          </a>
+          , I have built and published <span className="font-medium">10 Android &amp; Flutter apps</span> on
+          Google Play—including{" "}
+          <Link href="/products/lenden" className="underline underline-offset-4 decoration-[var(--color-border-default)] hover:decoration-[var(--color-text-primary)]">
             Lenden
           </Link>
-          , a peer-to-peer finance and budgeting app on Google Play powered by{" "}
-          <span className="inline-chip inline-chip--violet">Clean Architecture</span>,{" "}
-          BLoC, Firebase, and ObjectBox. On{" "}
-          <span className="inline-chip inline-chip--amber">Upwork</span>, I hold Top Rated
-          status with 5+ client applications delivered at 100% completion.
+          ,{" "}
+          <Link href="/products/weightnote" className="underline underline-offset-4 decoration-[var(--color-border-default)] hover:decoration-[var(--color-text-primary)]">
+            weightnote
+          </Link>
+          ,{" "}
+          <Link href="/products/bhalo-kaj" className="underline underline-offset-4 decoration-[var(--color-border-default)] hover:decoration-[var(--color-text-primary)]">
+            Bhalo Kaj
+          </Link>
+          , and{" "}
+          <Link href="/products/classmates" className="underline underline-offset-4 decoration-[var(--color-border-default)] hover:decoration-[var(--color-text-primary)]">
+            Classmates
+          </Link>
+          . On{" "}
+          <span className="inline-chip inline-chip--amber">Upwork</span>, I am a Top
+          Rated freelancer with 5+ international apps delivered at 100% completion.
         </p>
 
         <p>
           I study Computer Science &amp; Engineering at{" "}
           <span className="font-medium">United International University</span>, build with{" "}
-          <span className="font-medium">UIU Developers Hub</span>, and share practical
-          Flutter engineering tutorials on YouTube (15+ lessons).
+          <span className="inline-chip inline-chip--violet">Clean Architecture</span> at{" "}
+          <span className="font-medium">UIU Developers Hub</span>, and share Flutter
+          engineering tutorials on YouTube (15+ lessons).
         </p>
       </div>
 
@@ -108,7 +125,7 @@ export default function Hero() {
           className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[var(--color-text-primary)] hover:text-[var(--color-text-secondary)] transition-colors duration-[var(--motion-duration-instant)] py-1"
         >
           <Layers size={14} aria-hidden="true" />
-          <span>Products</span>
+          <span>All 11 Apps</span>
           <ArrowUpRight size={12} className="text-[var(--color-text-secondary)]" aria-hidden="true" />
         </Link>
 
