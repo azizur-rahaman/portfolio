@@ -1,57 +1,96 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Smartphone, Monitor, Cpu } from "lucide-react";
+import { ArrowUpRight, Monitor, Smartphone, Cpu } from "lucide-react";
 import { Product } from "@/data/products";
 
 export default function ProductCard({ product }: { product: Product }) {
-  const Icon = product.category === "Mobile App" ? Smartphone : product.category === "Web App" ? Monitor : Cpu;
+  const Icon =
+    product.category === "Mobile App"
+      ? Smartphone
+      : product.category === "Web App"
+      ? Monitor
+      : Cpu;
 
   return (
-    <div className="group relative bg-white rounded-2xl border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-      <div className="flex justify-between items-start mb-4">
-        <div className="p-3 bg-navy-50 rounded-xl text-navy overflow-hidden">
+    <article className="group rounded-xl bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] p-6 transition-all duration-[var(--motion-duration-instant)] hover:shadow-[var(--shadow-1)]">
+      <div className="flex items-start justify-between gap-4 mb-4">
+        <div className="w-11 h-11 rounded-lg bg-[var(--color-surface-strong)] border border-[var(--color-border-muted)] flex items-center justify-center overflow-hidden text-[var(--color-text-primary)]">
           {product.logo ? (
-            <Image 
-              src={product.logo} 
-              alt={`${product.name} Logo`} 
-              width={24} 
-              height={24} 
+            <Image
+              src={product.logo}
+              alt={`${product.name} Logo`}
+              width={28}
+              height={28}
               className="object-contain"
             />
           ) : (
-            <Icon size={24} />
+            <Icon size={20} aria-hidden="true" />
           )}
         </div>
-        <span className="px-3 py-1 bg-gray-50 text-gray-500 text-xs font-medium rounded-full border border-gray-100 uppercase tracking-wider">
+
+        <span className="px-2.5 py-1 text-[11px] font-medium uppercase tracking-wider text-[var(--color-text-secondary)] bg-[var(--color-surface-strong)] border border-[var(--color-border-muted)] rounded-[4px]">
           {product.category}
         </span>
       </div>
-      
-      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-gold transition-colors">
-        {product.name}
-      </h3>
-      
-      <p className="text-gray-600 text-sm line-clamp-2 mb-6">
+
+      <h2 className="text-[20px] leading-[28px] font-medium tracking-[-0.01em] text-[var(--color-text-primary)]">
+        <Link
+          href={`/products/${product.slug}`}
+          className="inline-flex items-center gap-1.5 hover:underline underline-offset-4"
+        >
+          <span>{product.name}</span>
+          <ArrowUpRight
+            size={16}
+            className="text-[var(--color-text-secondary)] transition-transform duration-[var(--motion-duration-instant)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            aria-hidden="true"
+          />
+        </Link>
+      </h2>
+
+      <p className="text-[14px] leading-[21px] text-[var(--color-text-secondary)] mt-2 line-clamp-2">
         {product.tagline}
       </p>
-      
-      <div className="flex flex-wrap gap-2 mb-8">
-        {product.techStack.slice(0, 3).map((tech) => (
-          <span key={tech} className="text-[10px] bg-gray-50 text-gray-600 px-2 py-1 rounded">
+
+      <ul
+        aria-label={`${product.name} tech stack`}
+        className="flex flex-wrap gap-1.5 mt-4 mb-6 list-none p-0 m-0"
+      >
+        {product.techStack.slice(0, 4).map((tech) => (
+          <li
+            key={tech}
+            className="px-2 py-0.5 text-[11px] leading-[18px] text-[var(--color-text-secondary)] bg-[var(--color-surface-strong)] border border-[var(--color-border-muted)] rounded-[4px]"
+          >
             {tech}
-          </span>
+          </li>
         ))}
-        {product.techStack.length > 3 && (
-          <span className="text-[10px] text-gray-400">+{product.techStack.length - 3} more</span>
+        {product.techStack.length > 4 && (
+          <li className="px-2 py-0.5 text-[11px] leading-[18px] text-[var(--color-text-secondary)]">
+            +{product.techStack.length - 4}
+          </li>
+        )}
+      </ul>
+
+      <div className="pt-3 border-t border-[var(--color-border-muted)] flex items-center justify-between gap-4">
+        <Link
+          href={`/products/${product.slug}`}
+          className="inline-flex items-center gap-1 text-[13px] font-medium text-[var(--color-text-primary)] hover:underline underline-offset-4"
+        >
+          View Case Study
+          <ArrowUpRight size={13} aria-hidden="true" />
+        </Link>
+
+        {product.link && (
+          <a
+            href={product.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-[12px] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+          >
+            Live App
+            <ArrowUpRight size={12} aria-hidden="true" />
+          </a>
         )}
       </div>
-
-      <Link 
-        href={`/products/${product.slug}`}
-        className="inline-flex items-center gap-2 text-sm font-semibold text-navy group-hover:gap-3 transition-all"
-      >
-        Explore Product <ArrowRight size={16} />
-      </Link>
-    </div>
+    </article>
   );
 }

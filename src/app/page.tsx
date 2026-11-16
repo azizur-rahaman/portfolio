@@ -1,21 +1,25 @@
-import Header from "@/components/Header";
-import Summary from "@/components/Summary";
-import Experience from "@/components/Experience";
-import Project from "@/components/Project";
-import Education from "@/components/Education";
-import Awards from "@/components/Awards";
-import Skills from "@/components/Skills";
+import TopNav from "@/components/TopNav";
+import Hero from "@/components/Hero";
+import WorkSection from "@/components/WorkSection";
+import ExperienceSection from "@/components/ExperienceSection";
+import RecognitionSection from "@/components/RecognitionSection";
+import SkillsSection from "@/components/SkillsSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="cv-container">
-      <Header />
-      <Summary />
-      <Experience />
-      <Project />
-      <Education />
-      <Awards />
-      <Skills />
-    </main>
+    <div className="min-h-screen flex flex-col">
+      <TopNav />
+      <main id="main-content" className="editorial-container flex-1">
+        <Hero />
+        <WorkSection />
+        <ExperienceSection />
+        <RecognitionSection />
+        <SkillsSection />
+        <ContactSection />
+      </main>
+      <Footer />
+    </div>
   );
 }

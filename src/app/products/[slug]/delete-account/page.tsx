@@ -52,7 +52,7 @@ export default async function DeleteAccountPage({ params }: { params: Promise<{ 
                   <li>Navigate to the <strong>Settings</strong> screen from the main dashboard.</li>
                   <li>Scroll to the bottom of the page.</li>
                   <li>Tap on <span className="text-red-600 underline">Delete Account</span>.</li>
-                  <li>Confirm your choice in the dialog. For security, if you haven't logged in recently, you may be asked to re-authenticate first.</li>
+                  <li>Confirm your choice in the dialog. For security, if you haven&apos;t logged in recently, you may be asked to re-authenticate first.</li>
                 </ol>
               </div>
             </section>

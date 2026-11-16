@@ -1,50 +1,51 @@
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
-import Link from "next/link";
-import { ChevronLeft } from "lucide-react";
+import TopNav from "@/components/TopNav";
+import Footer from "@/components/Footer";
+import SectionHeader from "@/components/SectionHeader";
 
 export default function ProductsPage() {
   return (
-    <div className="min-h-screen bg-gray-50/50">
-      {/* Header / Nav */}
-      <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div className="max-w-[1200px] mx-auto px-6 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-2 text-gray-600 hover:text-navy transition-colors font-medium">
-            <ChevronLeft size={20} /> Back to CV
+    <div className="min-h-screen flex flex-col">
+      <TopNav />
+
+      <main id="main-content" className="editorial-container flex-1 pt-8 pb-20">
+        <div className="mb-8">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+          >
+            <ArrowLeft size={14} aria-hidden="true" />
+            <span>Back to Portfolio</span>
           </Link>
-          <div className="text-xl font-bold text-navy tracking-tight">Showcase</div>
         </div>
-      </header>
-      <div className="h-[73px]" /> {/* Spacer for fixed header */}
 
-      {/* Hero Section */}
-      <section className="bg-white border-b border-gray-100 py-20">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">
-            Digital Products <span className="text-gold">&</span> Solutions
+        <header className="mb-12">
+          <h1 className="text-[32px] sm:text-[40px] leading-[1.1] font-medium tracking-[-0.03em] text-[var(--color-text-primary)]">
+            Products &amp; Case Studies
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl leading-relaxed">
-            A selection of apps and platforms I've designed and developed. 
-            Focused on clean code, secure architecture, and user-centric design.
+          <p className="text-[15px] leading-[24px] text-[var(--color-text-secondary)] mt-3 max-w-xl">
+            Production mobile applications built with Flutter, Clean Architecture, and scalable state management.
           </p>
-        </div>
-      </section>
+        </header>
 
-      {/* Grid Section */}
-      <main className="max-w-[1200px] mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-          
-          {/* Empty Placeholder for Future */}
-          <div className="border-2 border-dashed border-gray-200 rounded-2xl p-6 flex flex-col justify-center items-center text-center opacity-40">
-            <div className="w-12 h-12 rounded-full bg-gray-100 mb-4" />
-            <h3 className="font-bold text-gray-400">Next Project</h3>
-            <p className="text-xs text-gray-400 mt-1 italic">Cooking something new...</p>
+        <section aria-labelledby="heading-products">
+          <div id="heading-products" className="sr-only">
+            Products
           </div>
-        </div>
+          <SectionHeader index="01" title="Shipped Applications" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

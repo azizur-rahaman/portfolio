@@ -101,7 +101,7 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Children's Privacy</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Children&apos;s Privacy</h2>
               <p className="leading-relaxed">
                 Lenden does not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and you are aware that your child has provided us with personal data, please contact us.
               </p>
@@ -110,7 +110,7 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Changes to This Policy</h2>
               <p className="leading-relaxed">
-                We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.
+                We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Last Updated&quot; date.
               </p>
             </section>
 

@@ -1,39 +1,48 @@
-import { products } from "@/data/products";
-import { 
-  ArrowLeft, 
-  Github, 
-  Globe, 
-  ShieldCheck, 
-  BarChart3, 
-  Lock, 
-  Vault, 
-  UserCheck, 
-  ShoppingBag, 
-  Layers,
-  Smartphone,
-  Cloud,
-  Languages,
-  Paperclip
-} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import {
+  ArrowLeft,
+  ArrowUpRight,
+  BarChart3,
+  Calendar,
+  Cloud,
+  Globe,
+  Languages,
+  Layers,
+  Lock,
+  Paperclip,
+  ShieldCheck,
+  ShoppingBag,
+  Smartphone,
+  UserCheck,
+  Wallet,
+  type LucideIcon,
+} from "lucide-react";
+import { products } from "@/data/products";
+import TopNav from "@/components/TopNav";
+import Footer from "@/components/Footer";
+import SectionHeader from "@/components/SectionHeader";
 
-// Dynamic Icon Mapper
-const IconMap: Record<string, any> = {
+const IconMap: Record<string, LucideIcon> = {
   ShieldCheck,
   BarChart3,
   Lock,
-  Vault,
+  Wallet,
+  Calendar,
   UserCheck,
   ShoppingBag,
   Layers,
   Cloud,
   Languages,
-  Paperclip
+  Paperclip,
 };
 
-export default async function ProductDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ProductDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const product = products.find((p) => p.slug === slug);
 
@@ -42,72 +51,77 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   }
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Top Navigation */}
-      <nav className="border-b border-gray-100 py-4 px-6 fixed top-0 w-full bg-white/80 backdrop-blur-md z-50">
-        <div className="max-w-4xl mx-auto flex justify-between items-center">
-          <Link href="/products" className="group flex items-center gap-2 text-sm font-semibold text-gray-500 hover:text-navy transition-colors">
-            <ArrowLeft size={18} className="transition-transform group-hover:-translate-x-1" /> Back to Products
-          </Link>
-          <div className="flex items-center gap-4">
-            {product.link?.includes("github") && (
-              <a href={product.link} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-navy transition-colors">
-                <Github size={20} />
-              </a>
-            )}
-            <a href={product.link} target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm font-bold px-4 py-2 bg-navy text-white rounded-lg hover:bg-gold transition-colors">
-               Visit Project <Globe size={14} />
-            </a>
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen flex flex-col">
+      <TopNav />
 
-      {/* Hero Section */}
-      <header className="pt-32 pb-20 px-6 bg-gray-50/50">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center gap-6 mb-8">
+      <main id="main-content" className="editorial-container flex-1 pt-8 pb-20">
+        <div className="flex items-center justify-between gap-4 mb-10">
+          <Link
+            href="/products"
+            className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+          >
+            <ArrowLeft size={14} aria-hidden="true" />
+            <span>All Products</span>
+          </Link>
+
+          {product.link && (
+            <a
+              href={product.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-[6px] bg-[var(--color-surface-inverse)] text-[var(--color-text-inverse)] text-[13px] font-medium hover:opacity-90 transition-opacity"
+            >
+              <span>View on Store</span>
+              <ArrowUpRight size={13} aria-hidden="true" />
+            </a>
+          )}
+        </div>
+
+        {/* Product Header */}
+        <header className="pb-12 border-b border-[var(--color-border-default)]">
+          <div className="flex items-center gap-4 mb-6">
             {product.logo && (
-              <div className="w-20 h-20 bg-white p-3 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center overflow-hidden">
-                <Image 
-                  src={product.logo} 
-                  alt={`${product.name} Logo`} 
-                  width={64} 
-                  height={64} 
+              <div className="w-16 h-16 rounded-xl bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] p-2.5 flex items-center justify-center shrink-0 overflow-hidden">
+                <Image
+                  src={product.logo}
+                  alt={`${product.name} Logo`}
+                  width={48}
+                  height={48}
                   className="object-contain"
                 />
               </div>
             )}
+
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-gray-200 rounded-full text-xs font-bold text-navy mb-3">
-                <Smartphone size={12} /> {product.category.toUpperCase()}
-              </div>
-              <h1 className="text-5xl md:text-6xl font-black text-gray-900 tracking-tight">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-wider text-[var(--color-text-secondary)]">
+                <Smartphone size={12} aria-hidden="true" />
+                {product.category}
+              </span>
+              <h1 className="text-[32px] sm:text-[40px] leading-[1.1] font-medium tracking-[-0.03em] text-[var(--color-text-primary)] mt-1">
                 {product.name}
               </h1>
             </div>
           </div>
-          <p className="text-2xl text-gold font-bold mb-8">
+
+          <p className="text-[18px] leading-[26px] font-medium text-[var(--color-text-primary)] mb-3">
             {product.tagline}
           </p>
-          <p className="text-lg text-gray-600 leading-relaxed max-w-3xl">
+          <p className="text-[15px] leading-[24px] text-[var(--color-text-secondary)]">
             {product.description}
           </p>
-        </div>
-      </header>
+        </header>
 
-      {/* Visual Gallery */}
-      {(product.banner || (product.screenshots && product.screenshots.length > 0)) && (
-        <section className="py-24 px-6 border-b border-gray-100 bg-gray-50/30">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-black text-gray-900 mb-16 text-center">Interface Showcase</h2>
-            
-            <div className="overflow-hidden rounded-3xl shadow-2xl border border-gray-100">
-              {/* Feature Banner */}
+        {/* Visual Showcase */}
+        {(product.banner || (product.screenshots && product.screenshots.length > 0)) && (
+          <section className="py-12">
+            <SectionHeader index="01" title="Interface" />
+
+            <div className="rounded-xl overflow-hidden border border-[var(--color-border-default)] bg-[var(--color-surface-raised)]">
               {product.banner && (
                 <div className="relative w-full aspect-[16/9]">
-                  <Image 
-                    src={product.banner} 
-                    alt={`${product.name} Feature Banner`} 
+                  <Image
+                    src={product.banner}
+                    alt={`${product.name} feature overview`}
                     fill
                     className="object-cover"
                     priority
@@ -115,89 +129,103 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                 </div>
               )}
 
-              {/* Screenshot Grid - Seamless */}
               {product.screenshots && product.screenshots.length > 0 && (
-                <div className="grid grid-cols-1 md:grid-cols-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 border-t border-[var(--color-border-muted)]">
                   {product.screenshots.map((screenshot, index) => (
-                    <div 
-                      key={index} 
-                      className="group relative aspect-[9/16] overflow-hidden border-t md:border-t-0 md:border-r last:border-r-0 border-gray-100"
+                    <div
+                      key={screenshot}
+                      className="relative aspect-[9/16] border-b sm:border-b-0 sm:border-r last:border-b-0 last:border-r-0 border-[var(--color-border-muted)] overflow-hidden"
                     >
-                      <Image 
-                        src={screenshot} 
-                        alt={`${product.name} Screenshot ${index + 1}`} 
+                      <Image
+                        src={screenshot}
+                        alt={`${product.name} screenshot ${index + 1}`}
                         fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        className="object-cover"
                       />
-                      <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/5 transition-colors duration-500" />
                     </div>
                   ))}
                 </div>
               )}
             </div>
-          </div>
-        </section>
-      )}
+          </section>
+        )}
 
-      {/* Features Grid */}
-      <section className="py-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-black text-gray-900 mb-12">Core Features</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* Core Features */}
+        <section className="py-10">
+          <SectionHeader index="02" title="Capabilities" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {product.features.map((feature) => {
-              const Icon = IconMap[feature.icon] || Globe;
+              const Icon = IconMap[feature.icon] ?? Globe;
               return (
-                <div key={feature.title} className="flex gap-6">
-                  <div className="flex-shrink-0 w-12 h-12 bg-navy-50 rounded-2xl flex items-center justify-center text-navy">
-                    <Icon size={24} />
+                <div
+                  key={feature.title}
+                  className="p-5 rounded-xl bg-[var(--color-surface-raised)] border border-[var(--color-border-muted)]"
+                >
+                  <div className="flex items-center gap-2.5 mb-2">
+                    <Icon
+                      size={16}
+                      className="text-[var(--color-text-primary)] shrink-0"
+                      aria-hidden="true"
+                    />
+                    <h3 className="text-[15px] font-medium text-[var(--color-text-primary)]">
+                      {feature.title}
+                    </h3>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-                  </div>
+                  <p className="text-[13px] leading-[21px] text-[var(--color-text-secondary)]">
+                    {feature.description}
+                  </p>
                 </div>
               );
             })}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Tech Stack */}
-      <section className="py-24 px-6 bg-navy text-white overflow-hidden relative">
-        <div className="max-w-4xl mx-auto relative z-10">
-          <h2 className="text-3xl font-black mb-12">Technology Stack</h2>
-          <div className="flex flex-wrap gap-4">
+        {/* Tech Stack */}
+        <section className="py-10">
+          <SectionHeader index="03" title="Architecture & Stack" />
+
+          <ul className="flex flex-wrap gap-2 list-none p-0 m-0">
             {product.techStack.map((tech) => (
-              <span key={tech} className="px-6 py-3 bg-white/10 border border-white/20 rounded-xl font-medium hover:bg-white/20 transition-colors">
+              <li
+                key={tech}
+                className="px-3 py-1.5 text-[13px] font-medium text-[var(--color-text-primary)] bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] rounded-[6px]"
+              >
                 {tech}
-              </span>
+              </li>
             ))}
-          </div>
-        </div>
-        
-        {/* Background Decals */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 blur-3xl -mr-32 -mt-32 rounded-full" />
-      </section>
+          </ul>
+        </section>
 
-      {/* Call to Action */}
-      <footer className="py-32 px-6 text-center">
-        <h2 className="text-4xl font-black text-gray-900 mb-8 tracking-tight">Interested in this project?</h2>
-        <div className="flex justify-center gap-4">
-           {product.link && (
-             <a href={product.link} target="_blank" rel="noreferrer" className="px-8 py-4 bg-navy text-white font-bold rounded-2xl hover:bg-gold transition-colors shadow-lg shadow-navy/20">
-               View Live Version
-             </a>
-           )}
-           <Link href="/" className="px-8 py-4 border border-gray-200 font-bold rounded-2xl hover:bg-gray-50 transition-colors">
-             Contact Developer
-           </Link>
-        </div>
-        <div className="mt-12 text-center">
-          <Link href={`/products/${slug}/privacy-policy`} className="text-sm font-medium text-gray-400 hover:text-navy hover:underline transition-all">
-            Privacy Policy
+        {/* Footer Links */}
+        <div className="pt-8 border-t border-[var(--color-border-muted)] flex flex-wrap items-center justify-between gap-4 text-[13px]">
+          <Link
+            href="/#contact"
+            className="text-[var(--color-text-primary)] font-medium hover:underline underline-offset-4"
+          >
+            Contact Developer →
           </Link>
+
+          {slug === "lenden" && (
+            <div className="flex items-center gap-4 text-[var(--color-text-secondary)]">
+              <Link
+                href={`/products/${slug}/privacy-policy`}
+                className="hover:text-[var(--color-text-primary)] transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href={`/products/${slug}/delete-account`}
+                className="hover:text-[var(--color-text-primary)] transition-colors"
+              >
+                Delete Account
+              </Link>
+            </div>
+          )}
         </div>
-      </footer>
+      </main>
+
+      <Footer />
     </div>
   );
 }
