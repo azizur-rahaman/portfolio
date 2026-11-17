@@ -92,6 +92,7 @@ export const portfolioData = {
     name: "Azizur Rahaman",
     shortName: "Azizur",
     initials: "AR",
+    avatar: "/images/avatar.png",
     role: "Product Engineer · Flutter, Next.js, Spring Boot & Cloud",
     location: "Dhaka, Bangladesh",
     timeZone: "Asia/Dhaka",

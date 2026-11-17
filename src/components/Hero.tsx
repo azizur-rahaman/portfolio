@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowDownToLine,
   ArrowUpRight,
@@ -61,13 +62,15 @@ export default function Hero() {
     <section aria-label="Introduction" className="pt-10 pb-16 sm:pt-14 sm:pb-20">
       {/* Identity Block */}
       <div className="flex items-center gap-4 sm:gap-5 mb-7">
-        <div
-          aria-hidden="true"
-          className="w-16 h-16 sm:w-[72px] sm:h-[72px] rounded-2xl bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] flex items-center justify-center shrink-0 select-none"
-        >
-          <span className="font-mono text-[20px] font-semibold tracking-tight text-[var(--color-text-primary)]">
-            {profile.initials}
-          </span>
+        <div className="w-[72px] h-[72px] sm:w-[80px] sm:h-[80px] rounded-full bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] overflow-hidden shrink-0">
+          <Image
+            src={profile.avatar}
+            alt={profile.name}
+            width={80}
+            height={80}
+            priority
+            className="w-full h-full object-cover"
+          />
         </div>
 
         <div className="min-w-0">
