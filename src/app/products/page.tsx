@@ -38,7 +38,7 @@ export default function ProductsPage() {
             Products &amp; Shipped Apps
           </h1>
           <p className="text-[15px] leading-[24px] text-[var(--color-text-secondary)] mt-3 max-w-xl">
-            All {products.length} mobile applications I designed and engineered across Zabihaty LLC and Algoel Studio—spanning fintech, offline trade ledgers, rental discovery, campus AI, and privacy-first utilities.
+            All {products.length} products and applications I architected and shipped across Plexus Cloud, FSA Digital Labs, Zabihaty LLC, and Algoel Studio—spanning enterprise multi-tenant SaaS, fintech, offline trade ledgers, rental discovery, campus AI, and privacy-first utilities.
           </p>
         </header>
 

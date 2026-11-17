@@ -76,7 +76,11 @@ export default async function ProductDetailPage({
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-[6px] bg-[var(--color-surface-inverse)] text-[var(--color-text-inverse)] text-[13px] font-medium hover:opacity-90 transition-opacity"
             >
-              <span>View on Google Play</span>
+              <span>
+                {product.link.includes("play.google.com")
+                  ? "View on Google Play"
+                  : "Visit Live Platform"}
+              </span>
               <ArrowUpRight size={13} aria-hidden="true" />
             </a>
           )}
@@ -138,7 +142,35 @@ export default async function ProductDetailPage({
               ))}
             </div>
           )}
+
+          {product.extraLinks && product.extraLinks.length > 0 && (
+            <div className="flex flex-wrap items-center gap-3 mt-5 pt-4 border-t border-[var(--color-border-muted)]">
+              {product.extraLinks.map((ext) => (
+                <a
+                  key={ext.href}
+                  href={ext.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[13px] font-medium text-[var(--color-text-primary)] hover:underline underline-offset-4"
+                >
+                  <span>{ext.label}</span>
+                  <ArrowUpRight size={12} aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          )}
         </header>
+
+        {product.highlights && product.highlights.length > 0 && (
+          <section className="py-10 border-b border-[var(--color-border-muted)]">
+            <SectionHeader index="00" title="Key Highlights" />
+            <ul className="space-y-2 pl-5 list-disc text-[14px] leading-[22px] text-[var(--color-text-secondary)] marker:text-[var(--color-border-default)]">
+              {product.highlights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         {/* Visual Showcase */}
         {(product.banner || (product.screenshots && product.screenshots.length > 0)) && (

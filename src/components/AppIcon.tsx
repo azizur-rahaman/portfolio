@@ -2,6 +2,7 @@ import {
   BookOpen,
   Building2,
   Calculator,
+  Cloud,
   Frame,
   GraduationCap,
   HeartHandshake,
@@ -10,12 +11,15 @@ import {
   Scale,
   ShoppingBag,
   Smartphone,
+  Sun,
   Wallet,
   type LucideIcon,
 } from "lucide-react";
 import type { AppIconName } from "@/data/portfolio";
 
 const APP_ICON_MAP: Record<AppIconName | string, LucideIcon> = {
+  cloud: Cloud,
+  sun: Sun,
   wallet: Wallet,
   shoppingBag: ShoppingBag,
   scale: Scale,
@@ -28,6 +32,8 @@ const APP_ICON_MAP: Record<AppIconName | string, LucideIcon> = {
   frame: Frame,
   calculator: Calculator,
   // Product slug fallbacks so ProductCard and DetailPage reuse the exact same mapping
+  "a-cloud-planet": Cloud,
+  "good-morning-quotes": Sun,
   lenden: Wallet,
   zabihaty: ShoppingBag,
   weightnote: Scale,

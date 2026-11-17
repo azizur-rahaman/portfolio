@@ -11,9 +11,12 @@ export interface Product {
     icon: string;
   }[];
   link?: string;
+  extraLinks?: { label: string; href: string }[];
+  highlights?: string[];
   logo?: string;
   iconSymbol?: string;
   category:
+    | "Enterprise SaaS"
     | "Mobile App"
     | "Finance & Fintech"
     | "Utilities & Tools"
@@ -32,6 +35,117 @@ export interface Product {
 }
 
 export const products: Product[] = [
+  {
+    id: "a-cloud-planet",
+    slug: "a-cloud-planet",
+    name: "A Cloud Planet",
+    tagline: "Multi-Tenant Enterprise Data Center Management Platform",
+    description:
+      "Designed, architected, and delivered a production-grade multi-tenant enterprise SaaS platform powering infrastructure operations, client services, and field workforce management for a 100+ crore BDT enterprise data center. Built four production applications across Flutter, React, and Next.js with a centralized Spring Boot backend, implementing secure tenant isolation, JWT/RBAC authorization, scalable REST APIs, and enterprise-grade workflows.",
+    category: "Enterprise SaaS",
+    releaseYear: "2026",
+    platforms: ["Web", "Android", "iOS", "Backend"],
+    badge: "100+ Crore BDT Enterprise",
+    techStack: [
+      "Spring Boot",
+      "Java",
+      "Flutter",
+      "React",
+      "Next.js",
+      "Redux",
+      "BLoC",
+      "Clean Architecture",
+      "PostgreSQL",
+      "JWT",
+      "RBAC",
+      "Docker",
+      "GitLab CI/CD",
+    ],
+    highlights: [
+      "Engineered scalable multi-tenant architecture supporting multiple organizations with isolated data and permission models.",
+      "Developed production features across Flutter, React, and Next.js applications integrated with a centralized Spring Boot backend.",
+      "Designed secure authentication and authorization using JWT + RBAC.",
+      "Collaborated on enterprise workflows including infrastructure operations, service management, and field activity tracking.",
+      "Optimized application performance and deployment using Docker and GitLab CI/CD.",
+    ],
+    features: [
+      {
+        title: "Multi-Tenant Isolation & RBAC",
+        description:
+          "Isolated organization data boundaries paired with fine-grained JWT and role-based access control.",
+        icon: "ShieldCheck",
+      },
+      {
+        title: "Four Production Applications",
+        description:
+          "Three Next.js / React enterprise portals plus a companion Flutter mobile app powered by one Spring Boot core.",
+        icon: "Layers",
+      },
+      {
+        title: "Infrastructure & Field Ops",
+        description:
+          "Streamlined data center operations, client service ticketing, and field workforce tracking.",
+        icon: "Cloud",
+      },
+      {
+        title: "Containerized CI/CD Delivery",
+        description:
+          "Dockerized services and automated GitLab CI/CD pipelines backed by PostgreSQL.",
+        icon: "BarChart3",
+      },
+    ],
+    link: "https://dcm.acloudplanet.com",
+    extraLinks: [
+      { label: "DCM Portal", href: "https://dcm.acloudplanet.com" },
+      { label: "Dev Portal", href: "https://dev.acloudplanet.com" },
+      { label: "API", href: "https://api.acloudplanet.com" },
+    ],
+  },
+  {
+    id: "good-morning-quotes",
+    slug: "good-morning-quotes",
+    name: "Good Morning Images and Quotes",
+    tagline: "100K+ Downloads Daily Quotes, Visual Cards & Offline Content App",
+    description:
+      "Production mobile application with 100K+ downloads on Google Play, featuring daily quotes, curated image-based content, category browsing, favorites, one-tap sharing, offline caching, and a Next.js admin panel for scheduled publishing and content administration.",
+    category: "Productivity & Lifestyle",
+    releaseYear: "2021–2026",
+    platforms: ["Android", "iOS"],
+    rating: "100K+ Downloads",
+    badge: "100K+ Play Store Downloads",
+    techStack: [
+      "Flutter",
+      "BLoC",
+      "Firebase Firestore",
+      "Firebase Storage",
+      "Clean Architecture",
+      "Responsive UI",
+      "Local Storage (Cache)",
+      "Push Notifications",
+      "CI/CD (Cider, GitHub Actions, Fastlane)",
+    ],
+    features: [
+      {
+        title: "Daily Quotes & Visual Feeds",
+        description:
+          "High-engagement image cards and categorized daily quotes with instant sharing and favorites.",
+        icon: "Sparkles",
+      },
+      {
+        title: "Offline Caching & Push Alerts",
+        description:
+          "Local cache persistence for seamless offline browsing paired with Firebase Cloud Messaging alerts.",
+        icon: "Cloud",
+      },
+      {
+        title: "Automated CI/CD Release Pipeline",
+        description:
+          "Continuous integration and store deployment automated via Cider, GitHub Actions, and Fastlane.",
+        icon: "Layers",
+      },
+    ],
+    link: "https://play.google.com/store/apps/details?id=com.fivestarapp.wishme.motivation.quotes.goodmorning.coffee",
+  },
   {
     id: "lenden",
     slug: "lenden",
@@ -102,14 +216,25 @@ export const products: Product[] = [
     id: "zabihaty",
     slug: "zabihaty",
     name: "Zabihaty",
-    tagline: "Premium E-Commerce & Event Catering Experience",
+    tagline: "E-Commerce & Event Catering App | Shopper App",
     description:
-      "Zabihaty redefines the meat and catering e-commerce landscape with a seamless cross-platform mobile experience. Engineered with Clean Architecture and robust JWT refresh-token session management across 90+ Figma-matched screens and 15+ REST APIs, it delivers secure ordering for premium products and event catering.",
+      "Zabihaty redefines the meat and catering e-commerce landscape with a seamless cross-platform mobile experience. Engineered with Clean Architecture, JWT refresh-token session management, Stripe payments, WebSocket real-time updates, and push notifications across 90+ Figma-matched screens and 50+ REST APIs.",
     category: "Mobile App",
-    releaseYear: "2023–2025",
+    releaseYear: "2024–2025",
     platforms: ["Android", "iOS"],
     badge: "Production Client App",
-    techStack: ["Flutter", "Riverpod", "REST APIs", "JWT", "Dio", "Clean Architecture"],
+    techStack: [
+      "Flutter",
+      "Riverpod",
+      "REST APIs",
+      "JWT",
+      "Dio",
+      "Refresh-Token Session",
+      "Clean Architecture",
+      "Stripe",
+      "WebSocket",
+      "Push Notifications",
+    ],
     features: [
       {
         title: "Secure Session Management",
@@ -280,9 +405,9 @@ export const products: Product[] = [
     id: "ghorlagbee",
     slug: "ghorlagbee",
     name: "GhorLagbee",
-    tagline: "Verified To-Let & Smart Property Rental Discovery",
+    tagline: "Property Rental & To-Let Finding Platform (Client & Owner)",
     description:
-      "GhorLagbee removes broker friction from apartment and bachelor room hunting in Bangladesh. Built with Flutter, Google Maps SDK, and Firebase, it connects renters directly with verified property owners through GPS nearby discovery and one-tap calling.",
+      "GhorLagbee removes broker friction from apartment and bachelor room hunting in Bangladesh across both Client and Owner experiences. Built with Flutter, BLoC, Clean Architecture, Firebase (Auth & Firestore), geolocation distance filtering, push notifications, and automated CI/CD pipelines (Cider, GitHub Actions, Fastlane).",
     category: "House & Home",
     releaseYear: "2024",
     platforms: ["Android"],
@@ -290,10 +415,14 @@ export const products: Product[] = [
     badge: "Zero Broker Commission",
     techStack: [
       "Flutter",
-      "Google Maps SDK",
-      "Geolocation",
-      "Firebase Realtime DB",
-      "Cloud Storage",
+      "BLoC",
+      "Firebase (Auth, Firestore)",
+      "Clean Architecture",
+      "Geolocation & Distance Filtering",
+      "Responsive UI",
+      "Local Storage",
+      "Push Notifications",
+      "CI/CD (Cider, GitHub Actions, Fastlane)",
     ],
     features: [
       {

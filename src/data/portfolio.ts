@@ -1,4 +1,6 @@
 export type AppIconName =
+  | "cloud"
+  | "sun"
   | "wallet"
   | "shoppingBag"
   | "scale"
@@ -110,6 +112,73 @@ export const portfolioData = {
 
   work: [
     {
+      id: "a-cloud-planet",
+      title: "A Cloud Planet",
+      subtitle: "Multi-Tenant Enterprise Data Center Management Platform · Plexus Cloud",
+      status: "Live",
+      icon: "cloud",
+      description:
+        "Production-grade multi-tenant enterprise SaaS platform powering infrastructure operations, client services, and field workforce management for a 100+ crore BDT data center—spanning four apps across Flutter, React, and Next.js with a centralized Spring Boot backend, JWT + RBAC security, Docker, and GitLab CI/CD.",
+      tags: [
+        "Spring Boot",
+        "Java",
+        "Flutter",
+        "React",
+        "Next.js",
+        "PostgreSQL",
+        "JWT",
+        "RBAC",
+        "Docker",
+        "GitLab CI/CD",
+      ],
+      internalHref: "/products/a-cloud-planet",
+      externalHref: "https://dcm.acloudplanet.com",
+      externalLabel: "Live Portal",
+    },
+    {
+      id: "good-morning-quotes",
+      title: "Good Morning Images and Quotes",
+      subtitle: "100K+ Downloads · Visual Quotes & Offline Content App",
+      status: "Live",
+      icon: "sun",
+      description:
+        "Production Google Play app with 100K+ downloads featuring daily quotes, image-based content, category browsing, favorites, sharing, local cache persistence, push notifications, and automated CI/CD releases.",
+      tags: [
+        "Flutter",
+        "BLoC",
+        "Firebase Firestore",
+        "Clean Architecture",
+        "Local Cache",
+        "GitHub Actions",
+        "Fastlane",
+      ],
+      internalHref: "/products/good-morning-quotes",
+      externalHref:
+        "https://play.google.com/store/apps/details?id=com.fivestarapp.wishme.motivation.quotes.goodmorning.coffee",
+      externalLabel: "Google Play",
+    },
+    {
+      id: "zabihaty",
+      title: "Zabihaty",
+      subtitle: "E-Commerce & Event Catering App | Shopper App · Zabihaty LLC",
+      status: "Live",
+      icon: "shoppingBag",
+      description:
+        "Production cross-platform mobile application for meat e-commerce and event catering across 90+ Figma screens and 50+ REST APIs, featuring Clean Architecture, JWT refresh-token session management, Stripe payments, WebSocket updates, and push notifications.",
+      tags: [
+        "Flutter",
+        "Riverpod",
+        "REST APIs",
+        "JWT",
+        "Stripe",
+        "WebSocket",
+        "Clean Architecture",
+      ],
+      internalHref: "/products/zabihaty",
+      externalHref: "https://play.google.com/store/apps/details?id=com.zabihaty.app.zabihaty",
+      externalLabel: "Google Play",
+    },
+    {
       id: "lenden",
       title: "Lenden",
       subtitle: "Peer-to-Peer Finance & Budgeting App · Algoel Studio",
@@ -124,34 +193,39 @@ export const portfolioData = {
       externalLabel: "Google Play",
     },
     {
-      id: "zabihaty",
-      title: "Zabihaty",
-      subtitle: "E-Commerce & Event Catering App · Zabihaty LLC",
+      id: "ghorlagbee",
+      title: "GhorLagbee",
+      subtitle: "Property Rental & To-Let Finding Platform (Client & Owner) · Algoel Studio",
       status: "Live",
-      icon: "shoppingBag",
+      icon: "building2",
       description:
-        "Production cross-platform mobile application for meat e-commerce and event catering, engineered with Clean Architecture, JWT refresh-token session roaming, and real-time order logistics across 90+ Figma screens.",
-      tags: ["Flutter", "Riverpod", "REST APIs", "JWT", "Dio", "Clean Architecture"],
-      internalHref: "/products/zabihaty",
-      externalHref: "https://play.google.com/store/apps/details?id=com.zabihaty.app.zabihaty",
-      externalLabel: "Google Play",
-    },
-    {
-      id: "weightnote",
-      title: "weightnote (ডিজিটাল ওজন খাতা)",
-      subtitle: "Offline Weight Batch Ledger & PDF Invoicing · Algoel Studio",
-      status: "Live",
-      icon: "scale",
-      description:
-        "Offline-first digital weighing ledger for wholesale markets and agriculture featuring a custom batch numpad, live Maund (৪০ কেজি = ১ মণ) & Kg conversion, real-time pricing in Taka (৳), and multi-page PDF invoicing.",
-      tags: ["Flutter", "BLoC", "SQLite / WASM", "PDF & Printing", "GetIt"],
-      internalHref: "/products/weightnote",
-      externalHref: "https://play.google.com/store/apps/details?id=com.algoel.weightnote",
+        "Zero-brokerage rental discovery platform connecting clients and property owners with geolocation & distance filtering, Google Maps integration, Firebase Auth & Firestore, push notifications, and automated CI/CD.",
+      tags: [
+        "Flutter",
+        "BLoC",
+        "Firebase",
+        "Clean Architecture",
+        "Geolocation",
+        "GitHub Actions",
+        "Fastlane",
+      ],
+      internalHref: "/products/ghorlagbee",
+      externalHref: "https://play.google.com/store/apps/details?id=com.algoel.ghorlagbe&hl=en",
       externalLabel: "Google Play",
     },
   ] satisfies WorkItem[],
 
   moreApps: [
+    {
+      slug: "weightnote",
+      name: "weightnote (ডিজিটাল ওজন খাতা)",
+      tagline:
+        "Offline weight batch ledger with auto Maund (৪০ কেজি = ১ মণ) conversion & PDF invoicing",
+      stack: "Flutter · BLoC · SQLite / WASM",
+      year: "2026",
+      icon: "scale",
+      playStoreUrl: "https://play.google.com/store/apps/details?id=com.algoel.weightnote",
+    },
     {
       slug: "bhalo-kaj",
       name: "Bhalo Kaj (ভালো কাজ)",
@@ -188,15 +262,6 @@ export const portfolioData = {
       logo: "/images/products/safeqr/icon.png",
       icon: "qrCode",
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.algoel.safeqr_qr_and_barcode_scanner",
-    },
-    {
-      slug: "ghorlagbee",
-      name: "GhorLagbee",
-      tagline: "Zero-brokerage GPS To-Let discovery with Google Maps & direct owner calls",
-      stack: "Flutter · Google Maps · Firebase",
-      year: "2024",
-      icon: "building2",
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.algoel.ghorlagbe",
     },
     {
       slug: "classmates",

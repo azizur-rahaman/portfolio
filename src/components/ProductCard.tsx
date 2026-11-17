@@ -90,7 +90,7 @@ export default function ProductCard({ product }: { product: Product }) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-[12px] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
           >
-            Google Play
+            {product.link.includes("play.google.com") ? "Google Play" : "Live Portal"}
             <ArrowUpRight size={12} strokeWidth={1.75} aria-hidden="true" />
           </a>
         ) : (
