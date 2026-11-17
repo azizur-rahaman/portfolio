@@ -505,6 +505,8 @@ export const products: Product[] = [
     id: "news-app-flash",
     slug: "news-app-flash",
     name: "News App Flash",
+    logo: "/images/products/news-app-flash-logo.jpg",
+    logoFullBleed: true,
     tagline: "Tinder-Style Flashcard News Reader for Bangladesh",
     description:
       "A fast, distraction-free Bangladesh news reader built with Flutter and BLoC. Replaces cluttered newspaper portals with swipeable flashcards—swipe left to skip, swipe right to bookmark, or tap to read verified national stories in under 60 seconds with zero login.",
@@ -588,5 +590,54 @@ export const products: Product[] = [
       },
     ],
     link: "https://play.google.com/store/apps/details?id=com.algoel.safeqr_qr_and_barcode_scanner",
+  },
+  {
+    id: "passport-photo-editor",
+    slug: "passport-photo-editor",
+    name: "Passport Photo Editor",
+    logo: "/images/products/passport-photo-editor-logo.webp",
+    logoFullBleed: true,
+    tagline: "Privacy-First 300 DPI Biometric Passport, Visa & ID Photo Maker",
+    description:
+      "Create official passport, visa, and identity photos in seconds with Passport Photo Editor—a fast, privacy-first, zero-bloat mobile tool. Pre-configured with international biometric presets (US, UK/EU Schengen, India, Canada, Australia, China, Japan, Bangladesh MRP & e-Passport, and custom sizes), smart facial alignment guides, 4×6\" & A4 printable sheet tiling, and crisp 300 DPI export with zero accounts or ads.",
+    category: "Utilities & Tools",
+    releaseYear: "2026",
+    platforms: ["Android"],
+    badge: "300 DPI · Ad-Free & Offline",
+    techStack: [
+      "Flutter",
+      "Dart",
+      "300 DPI Image Engine",
+      "Biometric Alignment Guides",
+      "4×6\" & A4 Sheet Export",
+      "Offline Processing",
+    ],
+    features: [
+      {
+        title: "Official International Standards",
+        description:
+          "Pre-configured presets for US (2×2 in), UK/EU Schengen (35×45 mm), India, Canada, Australia, China, Japan, Bangladesh MRP & e-Passport (40×50 mm), and custom dimensions.",
+        icon: "Globe",
+      },
+      {
+        title: "Smart Biometric Alignment Guide",
+        description:
+          "On-screen crown line, eye-level reference, chin baseline, and facial symmetry axis overlays to help avoid rejected applications.",
+        icon: "UserCheck",
+      },
+      {
+        title: "Precision Photo Editing Tools",
+        description:
+          "Smooth pinch-to-zoom and pan gestures, 90° quick rotation, ±15° horizon straightening, real-time brightness/contrast controls, and composition grid.",
+        icon: "Layers",
+      },
+      {
+        title: "Printable 4×6\" & A4 Multi-Photo Sheets",
+        description:
+          "Tile multiple passport photos onto standard 4×6 inch or A4 sheets with clean dashed cutting guides and mathematical 300 DPI background rendering.",
+        icon: "Paperclip",
+      },
+    ],
+    link: "https://play.google.com/store/apps/details?id=com.algoel.passport_photo_editor",
   },
 ];

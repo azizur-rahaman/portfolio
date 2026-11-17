@@ -178,7 +178,7 @@ export default function Hero() {
           className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[var(--color-text-primary)] hover:text-[var(--color-text-secondary)] transition-colors duration-[var(--motion-duration-instant)] py-1"
         >
           <LayoutGrid size={14} strokeWidth={1.75} aria-hidden="true" />
-          <span>All 11 Products</span>
+          <span>All 12 Products</span>
           <ArrowUpRight size={12} strokeWidth={1.75} className="text-[var(--color-text-secondary)]" aria-hidden="true" />
         </Link>
 

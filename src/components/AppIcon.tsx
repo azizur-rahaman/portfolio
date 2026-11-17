@@ -1,6 +1,7 @@
 import {
   BookOpen,
   Building2,
+  Camera,
   Cloud,
   GraduationCap,
   HeartHandshake,
@@ -26,6 +27,7 @@ const APP_ICON_MAP: Record<AppIconName | string, LucideIcon> = {
   newspaper: Newspaper,
   qrCode: QrCode,
   building2: Building2,
+  camera: Camera,
   graduationCap: GraduationCap,
   // Product slug fallbacks so ProductCard and DetailPage reuse the exact same mapping
   "a-cloud-planet": Cloud,
@@ -38,6 +40,7 @@ const APP_ICON_MAP: Record<AppIconName | string, LucideIcon> = {
   "news-app-flash": Newspaper,
   safeqr: QrCode,
   ghorlagbee: Building2,
+  "passport-photo-editor": Camera,
   classmates: GraduationCap,
 };
 

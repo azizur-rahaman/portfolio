@@ -9,6 +9,7 @@ export type AppIconName =
   | "newspaper"
   | "qrCode"
   | "building2"
+  | "camera"
   | "graduationCap";
 
 export interface WorkItem {
@@ -261,6 +262,8 @@ export const portfolioData = {
       tagline: "Tinder-style swipeable flashcard news reader curated for Bangladesh",
       stack: "Flutter · BLoC · RSS",
       year: "2026",
+      logo: "/images/products/news-app-flash-logo.jpg",
+      logoFullBleed: true,
       icon: "newspaper",
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.algoel.news_app_flash",
     },
@@ -274,6 +277,17 @@ export const portfolioData = {
       logoFullBleed: true,
       icon: "qrCode",
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.algoel.safeqr_qr_and_barcode_scanner",
+    },
+    {
+      slug: "passport-photo-editor",
+      name: "Passport Photo Editor",
+      tagline: "Privacy-first 300 DPI biometric passport, visa & ID photo maker with 4×6\" & A4 print sheets",
+      stack: "Flutter · Offline Image Engine",
+      year: "2026",
+      logo: "/images/products/passport-photo-editor-logo.webp",
+      logoFullBleed: true,
+      icon: "camera",
+      playStoreUrl: "https://play.google.com/store/apps/details?id=com.algoel.passport_photo_editor",
     },
     {
       slug: "classmates",
@@ -347,7 +361,7 @@ export const portfolioData = {
       summary:
         "Independent mobile product studio designing, building, and publishing Android and Flutter apps on Google Play with 110K+ total downloads across products.",
       highlights: [
-        "Shipped Lenden, weightnote, Bhalo Kaj, Al Quran - Bangla & Audio, GhorLagbee, Classmates, SafeQR, and News App Flash.",
+        "Shipped Lenden, weightnote, Bhalo Kaj, Al Quran - Bangla & Audio, GhorLagbee, Classmates, SafeQR, News App Flash, and Passport Photo Editor.",
         "Engineered offline-first persistence (Drift SQLite, ObjectBox, SQLite WASM), vector PDF invoicing, and privacy-first architectures.",
       ],
     },

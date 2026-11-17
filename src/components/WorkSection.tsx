@@ -14,7 +14,7 @@ export default function WorkSection() {
       <SectionHeader
         index="01"
         title="Work"
-        actionLabel="All 11 products"
+        actionLabel="All 12 products"
         actionHref="/products"
       />
 
