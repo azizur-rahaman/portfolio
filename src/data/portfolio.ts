@@ -9,9 +9,7 @@ export type AppIconName =
   | "newspaper"
   | "qrCode"
   | "building2"
-  | "graduationCap"
-  | "frame"
-  | "calculator";
+  | "graduationCap";
 
 export interface WorkItem {
   id: string;
@@ -21,6 +19,7 @@ export interface WorkItem {
   description: string;
   tags: string[];
   logo?: string;
+  logoFullBleed?: boolean;
   icon: AppIconName;
   internalHref?: string;
   externalHref: string;
@@ -34,6 +33,7 @@ export interface CompactAppItem {
   stack: string;
   year: string;
   logo?: string;
+  logoFullBleed?: boolean;
   icon: AppIconName;
   playStoreUrl: string;
 }
@@ -116,6 +116,7 @@ export const portfolioData = {
       title: "A Cloud Planet",
       subtitle: "Multi-Tenant Enterprise Data Center Management Platform · Plexus Cloud",
       status: "Live",
+      logo: "/images/products/a-cloud-planet-logo.png",
       icon: "cloud",
       description:
         "Production-grade multi-tenant enterprise SaaS platform powering infrastructure operations, client services, and field workforce management for a 100+ crore BDT data center—spanning four apps across Flutter, React, and Next.js with a centralized Spring Boot backend, JWT + RBAC security, Docker, and GitLab CI/CD.",
@@ -132,14 +133,16 @@ export const portfolioData = {
         "GitLab CI/CD",
       ],
       internalHref: "/products/a-cloud-planet",
-      externalHref: "https://dcm.acloudplanet.com",
-      externalLabel: "Live Portal",
+      externalHref: "https://acloudplanet.com/",
+      externalLabel: "Live Site",
     },
     {
       id: "good-morning-quotes",
       title: "Good Morning Images and Quotes",
       subtitle: "100K+ Downloads · Visual Quotes & Offline Content App",
       status: "Live",
+      logo: "/images/products/good-morning-quotes-logo.webp",
+      logoFullBleed: true,
       icon: "sun",
       description:
         "Production Google Play app with 100K+ downloads featuring daily quotes, image-based content, category browsing, favorites, sharing, local cache persistence, push notifications, and automated CI/CD releases.",
@@ -183,7 +186,8 @@ export const portfolioData = {
       title: "Lenden",
       subtitle: "Peer-to-Peer Finance & Budgeting App · Algoel Studio",
       status: "Live",
-      logo: "/images/products/lenden-logo.png",
+      logo: "/images/products/lenden-logo.webp",
+      logoFullBleed: true,
       icon: "wallet",
       description:
         "Financial ecosystem combining two-way P2P debt/credit handshakes, multi-wallet analytics, biometric & 4-digit PIN security, and an intelligent daily spending planner with English and Bengali localization.",
@@ -197,6 +201,8 @@ export const portfolioData = {
       title: "GhorLagbee",
       subtitle: "Property Rental & To-Let Finding Platform (Client & Owner) · Algoel Studio",
       status: "Live",
+      logo: "/images/products/ghorlagbee-logo.webp",
+      logoFullBleed: true,
       icon: "building2",
       description:
         "Zero-brokerage rental discovery platform connecting clients and property owners with geolocation & distance filtering, Google Maps integration, Firebase Auth & Firestore, push notifications, and automated CI/CD.",
@@ -223,6 +229,8 @@ export const portfolioData = {
         "Offline weight batch ledger with auto Maund (৪০ কেজি = ১ মণ) conversion & PDF invoicing",
       stack: "Flutter · BLoC · SQLite / WASM",
       year: "2026",
+      logo: "/images/products/weightnote-logo.webp",
+      logoFullBleed: true,
       icon: "scale",
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.algoel.weightnote",
     },
@@ -232,15 +240,18 @@ export const portfolioData = {
       tagline: "Daily good-deeds habit tracker with GitHub-style heatmap & Bengali PDF reports",
       stack: "Flutter · BLoC · Drift SQLite",
       year: "2026",
+      logo: "/images/products/bhalo-kaj-logo.webp",
       icon: "heartHandshake",
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.algoel.bhalokaj",
     },
     {
       slug: "al-quran",
-      name: "Al-Qur'an Bangla",
+      name: "Al Quran - Bangla & Audio",
       tagline: "114 Surahs with Bengali translation, word meanings & multi-Qari audio streaming",
       stack: "Flutter · BLoC · just_audio",
       year: "2026",
+      logo: "/images/products/al-quran-logo.webp",
+      logoFullBleed: true,
       icon: "bookOpen",
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.algoel.alquran",
     },
@@ -259,7 +270,8 @@ export const portfolioData = {
       tagline: "Offline QR & barcode scanner/generator with encrypted local JSON ledger",
       stack: "Flutter · GetX · Mobile Scanner",
       year: "2026",
-      logo: "/images/products/safeqr/icon.png",
+      logo: "/images/products/safeqr-logo.webp",
+      logoFullBleed: true,
       icon: "qrCode",
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.algoel.safeqr_qr_and_barcode_scanner",
     },
@@ -269,26 +281,9 @@ export const portfolioData = {
       tagline: "University campus social network, exam bank & Gemini-powered Professor AI",
       stack: "Flutter · Gemini AI · Firebase",
       year: "2024",
+      logo: "/images/products/classmates-logo.webp",
       icon: "graduationCap",
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.algoel.uiu_students",
-    },
-    {
-      slug: "frametastic",
-      name: "FrameTastic",
-      tagline: "Native photo frame designer with 100+ borders and lossless Canvas 2D filters",
-      stack: "Kotlin · Canvas 2D",
-      year: "2023",
-      icon: "frame",
-      playStoreUrl: "https://play.google.com/store/apps/details?id=xyz.quantumsoftwares.frametastic",
-    },
-    {
-      slug: "colorful-calculator",
-      name: "ColorFul Calculator",
-      tagline: "Lightweight (<10MB) themeable calculator with haptic feedback & history log",
-      stack: "Kotlin · Android Jetpack",
-      year: "2023",
-      icon: "calculator",
-      playStoreUrl: "https://play.google.com/store/apps/details?id=com.quantumsoft.colorfulcalculator",
     },
   ] satisfies CompactAppItem[],
 
@@ -350,9 +345,9 @@ export const portfolioData = {
       isCurrent: true,
       icon: "rocket",
       summary:
-        "Independent mobile product studio designing, building, and publishing 10 Android and Flutter apps on Google Play with 110K+ total downloads across products.",
+        "Independent mobile product studio designing, building, and publishing Android and Flutter apps on Google Play with 110K+ total downloads across products.",
       highlights: [
-        "Shipped Lenden, weightnote, Bhalo Kaj, Al-Qur'an Bangla, GhorLagbee, Classmates, SafeQR, News App Flash, FrameTastic, and ColorFul Calculator.",
+        "Shipped Lenden, weightnote, Bhalo Kaj, Al Quran - Bangla & Audio, GhorLagbee, Classmates, SafeQR, and News App Flash.",
         "Engineered offline-first persistence (Drift SQLite, ObjectBox, SQLite WASM), vector PDF invoicing, and privacy-first architectures.",
       ],
     },

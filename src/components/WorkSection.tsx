@@ -14,7 +14,7 @@ export default function WorkSection() {
       <SectionHeader
         index="01"
         title="Work"
-        actionLabel="All 13 products"
+        actionLabel="All 11 products"
         actionHref="/products"
       />
 
@@ -29,14 +29,24 @@ export default function WorkSection() {
             <article key={item.id} className="group">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-start gap-3.5 min-w-0">
-                  <div className="w-10 h-10 rounded-xl bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] flex items-center justify-center shrink-0 overflow-hidden text-[var(--color-text-primary)] mt-0.5">
+                  <div
+                    className={`w-10 h-10 rounded-xl border border-[var(--color-border-default)] flex items-center justify-center shrink-0 overflow-hidden text-[var(--color-text-primary)] mt-0.5 ${
+                      item.logo && !item.logoFullBleed
+                        ? "bg-white p-1"
+                        : "bg-[var(--color-surface-raised)]"
+                    }`}
+                  >
                     {item.logo ? (
                       <Image
                         src={item.logo}
                         alt={`${item.title} icon`}
-                        width={24}
-                        height={24}
-                        className="object-contain"
+                        width={40}
+                        height={40}
+                        className={
+                          item.logoFullBleed
+                            ? "w-full h-full object-cover"
+                            : "w-full h-full object-contain"
+                        }
                       />
                     ) : (
                       <AppIcon name={item.icon} size={18} />
@@ -153,14 +163,24 @@ export default function WorkSection() {
               className="py-3.5 first:pt-1 last:pb-0 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4"
             >
               <div className="flex items-start sm:items-center gap-3 min-w-0">
-                <div className="w-8 h-8 rounded-lg bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] flex items-center justify-center shrink-0 overflow-hidden text-[var(--color-text-primary)] mt-0.5 sm:mt-0">
+                <div
+                  className={`w-8 h-8 rounded-lg border border-[var(--color-border-default)] flex items-center justify-center shrink-0 overflow-hidden text-[var(--color-text-primary)] mt-0.5 sm:mt-0 ${
+                    app.logo && !app.logoFullBleed
+                      ? "bg-white p-0.5"
+                      : "bg-[var(--color-surface-raised)]"
+                  }`}
+                >
                   {app.logo ? (
                     <Image
                       src={app.logo}
                       alt={`${app.name} icon`}
-                      width={20}
-                      height={20}
-                      className="object-contain"
+                      width={32}
+                      height={32}
+                      className={
+                        app.logoFullBleed
+                          ? "w-full h-full object-cover"
+                          : "w-full h-full object-contain"
+                      }
                     />
                   ) : (
                     <AppIcon name={app.icon} size={15} />

@@ -1,9 +1,7 @@
 import {
   BookOpen,
   Building2,
-  Calculator,
   Cloud,
-  Frame,
   GraduationCap,
   HeartHandshake,
   Newspaper,
@@ -29,8 +27,6 @@ const APP_ICON_MAP: Record<AppIconName | string, LucideIcon> = {
   qrCode: QrCode,
   building2: Building2,
   graduationCap: GraduationCap,
-  frame: Frame,
-  calculator: Calculator,
   // Product slug fallbacks so ProductCard and DetailPage reuse the exact same mapping
   "a-cloud-planet": Cloud,
   "good-morning-quotes": Sun,
@@ -43,8 +39,6 @@ const APP_ICON_MAP: Record<AppIconName | string, LucideIcon> = {
   safeqr: QrCode,
   ghorlagbee: Building2,
   classmates: GraduationCap,
-  frametastic: Frame,
-  "colorful-calculator": Calculator,
 };
 
 export function AppIcon({

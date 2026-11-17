@@ -89,14 +89,24 @@ export default async function ProductDetailPage({
         {/* Product Header */}
         <header className="pb-10 border-b border-[var(--color-border-default)]">
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 rounded-2xl bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] p-2.5 flex items-center justify-center shrink-0 overflow-hidden text-[var(--color-text-primary)]">
+            <div
+              className={`w-16 h-16 rounded-2xl border border-[var(--color-border-default)] flex items-center justify-center shrink-0 overflow-hidden text-[var(--color-text-primary)] ${
+                product.logo && !product.logoFullBleed
+                  ? "bg-white p-2"
+                  : "bg-[var(--color-surface-raised)]"
+              }`}
+            >
               {product.logo ? (
                 <Image
                   src={product.logo}
                   alt={`${product.name} Logo`}
-                  width={48}
-                  height={48}
-                  className="object-contain"
+                  width={64}
+                  height={64}
+                  className={
+                    product.logoFullBleed
+                      ? "w-full h-full object-cover"
+                      : "w-full h-full object-contain"
+                  }
                 />
               ) : (
                 <AppIcon name={product.slug} size={28} />

@@ -14,6 +14,7 @@ export interface Product {
   extraLinks?: { label: string; href: string }[];
   highlights?: string[];
   logo?: string;
+  logoFullBleed?: boolean;
   iconSymbol?: string;
   category:
     | "Enterprise SaaS"
@@ -39,6 +40,7 @@ export const products: Product[] = [
     id: "a-cloud-planet",
     slug: "a-cloud-planet",
     name: "A Cloud Planet",
+    logo: "/images/products/a-cloud-planet-logo.png",
     tagline: "Multi-Tenant Enterprise Data Center Management Platform",
     description:
       "Designed, architected, and delivered a production-grade multi-tenant enterprise SaaS platform powering infrastructure operations, client services, and field workforce management for a 100+ crore BDT enterprise data center. Built four production applications across Flutter, React, and Next.js with a centralized Spring Boot backend, implementing secure tenant isolation, JWT/RBAC authorization, scalable REST APIs, and enterprise-grade workflows.",
@@ -94,8 +96,9 @@ export const products: Product[] = [
         icon: "BarChart3",
       },
     ],
-    link: "https://dcm.acloudplanet.com",
+    link: "https://acloudplanet.com/",
     extraLinks: [
+      { label: "Website", href: "https://acloudplanet.com/" },
       { label: "DCM Portal", href: "https://dcm.acloudplanet.com" },
       { label: "Dev Portal", href: "https://dev.acloudplanet.com" },
       { label: "API", href: "https://api.acloudplanet.com" },
@@ -105,6 +108,8 @@ export const products: Product[] = [
     id: "good-morning-quotes",
     slug: "good-morning-quotes",
     name: "Good Morning Images and Quotes",
+    logo: "/images/products/good-morning-quotes-logo.webp",
+    logoFullBleed: true,
     tagline: "100K+ Downloads Daily Quotes, Visual Cards & Offline Content App",
     description:
       "Production mobile application with 100K+ downloads on Google Play, featuring daily quotes, curated image-based content, category browsing, favorites, one-tap sharing, offline caching, and a Next.js admin panel for scheduled publishing and content administration.",
@@ -150,7 +155,8 @@ export const products: Product[] = [
     id: "lenden",
     slug: "lenden",
     name: "Lenden",
-    logo: "/images/products/lenden-logo.png",
+    logo: "/images/products/lenden-logo.webp",
+    logoFullBleed: true,
     tagline: "Intelligent Peer-to-Peer Finance & Budgeting",
     description:
       "Lenden is an advanced financial ecosystem that goes beyond simple debt tracking. It combines peer-to-peer ledger management with a powerful wallet system and an intelligent budget planner. Featuring real-time income/expense analysis, daily spending allowance calculations, two-way P2P handshakes, and bank-grade PIN & biometric security, Lenden empowers users to take full control of their financial health across devices.",
@@ -261,6 +267,8 @@ export const products: Product[] = [
     id: "weightnote",
     slug: "weightnote",
     name: "weightnote (ডিজিটাল ওজন খাতা)",
+    logo: "/images/products/weightnote-logo.webp",
+    logoFullBleed: true,
     tagline: "Precision Weight Batch Ledger, Auto Maund Conversion & PDF Invoicing",
     description:
       "An offline-first digital weighing ledger built for trade, agriculture, poultry, livestock, and wholesale commodity markets. Operators record serial weight batches on an optimized quick numpad, get live Maund (৪০ কেজি = ১ মণ) & Kg breakdowns, calculate total pricing in Taka (৳), and export multi-page print-ready PDF invoices with zero account registration.",
@@ -315,6 +323,7 @@ export const products: Product[] = [
     id: "bhalo-kaj",
     slug: "bhalo-kaj",
     name: "Bhalo Kaj (ভালো কাজ)",
+    logo: "/images/products/bhalo-kaj-logo.webp",
     tagline: "Daily Good Deeds Habit Tracker with GitHub-Style Activity Heatmap & PDF Reports",
     description:
       "A serene, privacy-first habit tracker inspired by GitHub contribution heatmaps. Users log everyday good deeds with custom notes or quick chips, inspect chronological logs for any calendar date, track streaks on a 4-tier heatmap, and export multi-page Bengali PDF reports rendered with Noto Sans Bengali.",
@@ -362,7 +371,9 @@ export const products: Product[] = [
   {
     id: "al-quran",
     slug: "al-quran",
-    name: "Al-Qur'an Bangla",
+    name: "Al Quran - Bangla & Audio",
+    logo: "/images/products/al-quran-logo.webp",
+    logoFullBleed: true,
     tagline: "Authentic Quran with Bengali Translation, Audio Recitation & Word Meanings",
     description:
       "A distraction-free digital Quran experience offering all 114 Surahs (6,236 Ayahs) with Indo-Pak and Uthmani scripts, authentic Bengali translations, word-by-word root meanings, multi-Qari background audio streaming, and a reverent dark-stone night reading aesthetic.",
@@ -405,6 +416,8 @@ export const products: Product[] = [
     id: "ghorlagbee",
     slug: "ghorlagbee",
     name: "GhorLagbee",
+    logo: "/images/products/ghorlagbee-logo.webp",
+    logoFullBleed: true,
     tagline: "Property Rental & To-Let Finding Platform (Client & Owner)",
     description:
       "GhorLagbee removes broker friction from apartment and bachelor room hunting in Bangladesh across both Client and Owner experiences. Built with Flutter, BLoC, Clean Architecture, Firebase (Auth & Firestore), geolocation distance filtering, push notifications, and automated CI/CD pipelines (Cider, GitHub Actions, Fastlane).",
@@ -450,6 +463,7 @@ export const products: Product[] = [
     id: "classmates",
     slug: "classmates",
     name: "Classmates",
+    logo: "/images/products/classmates-logo.webp",
     tagline: "All-in-One Campus Social Platform & AI Study Companion",
     description:
       "Built for the United International University student community, Classmates unifies 12 academic departments with real-time 1-on-1 chat, campus feeds, past trimester question banks, CGPA & tuition calculators, and Professor AI powered by Google Gemini.",
@@ -532,7 +546,8 @@ export const products: Product[] = [
     id: "safeqr",
     slug: "safeqr",
     name: "SafeQR",
-    logo: "/images/products/safeqr/icon.png",
+    logo: "/images/products/safeqr-logo.webp",
+    logoFullBleed: true,
     tagline: "Fast & Secure Offline QR and Barcode Scanner & Generator",
     description:
       "An offline-first QR and barcode toolkit engineered with Flutter and GetX. SafeQR delivers sub-second viewfinder scanning with haptic confirmation, gallery decoding, custom QR creation (Wi-Fi, URLs, vCards), and an on-device history ledger with JSON import/export.",
@@ -573,68 +588,5 @@ export const products: Product[] = [
       },
     ],
     link: "https://play.google.com/store/apps/details?id=com.algoel.safeqr_qr_and_barcode_scanner",
-  },
-  {
-    id: "frametastic",
-    slug: "frametastic",
-    name: "FrameTastic",
-    tagline: "Personalized Photo Frame Designer & Creative Studio",
-    description:
-      "An Android native photo framing and creative editing studio built with Kotlin and Canvas 2D graphics. Combines 100+ designer borders, vintage polaroid layouts, brightness/contrast adjustments, and lossless high-resolution export for direct social sharing.",
-    category: "Creative & Design",
-    releaseYear: "2023",
-    platforms: ["Android"],
-    rating: "4.2★ Google Play",
-    badge: "100+ Designer Frames",
-    techStack: [
-      "Kotlin",
-      "Android Native",
-      "Canvas 2D Graphics",
-      "Image Processing",
-    ],
-    features: [
-      {
-        title: "100+ Designer Borders",
-        description:
-          "Classic, polaroid, and contemporary frame layouts with customizable stroke and corner styling.",
-        icon: "Layers",
-      },
-      {
-        title: "Lossless Image Pipeline",
-        description:
-          "Crop, rotate, color-grade, and export at full camera sensor clarity.",
-        icon: "Sparkles",
-      },
-    ],
-    link: "https://play.google.com/store/apps/details?id=xyz.quantumsoftwares.frametastic",
-  },
-  {
-    id: "colorful-calculator",
-    slug: "colorful-calculator",
-    name: "ColorFul Calculator",
-    tagline: "Vibrant Themeable Calculator & Fast Math Utility",
-    description:
-      "A lightweight (<10MB) Android calculator crafted with Kotlin and Android Jetpack, pairing high-contrast customizable color themes with tactile haptic feedback, calculation history logging, and an ad-free offline experience.",
-    category: "Utilities & Tools",
-    releaseYear: "2023",
-    platforms: ["Android"],
-    rating: "4.2★ Google Play",
-    badge: "Lightweight & Ad-Free",
-    techStack: ["Kotlin", "Android Jetpack", "Vector Graphics", "Local Cache"],
-    features: [
-      {
-        title: "Themeable Color Palettes",
-        description:
-          "High-contrast customizable themes built for visual comfort and instant touch feedback.",
-        icon: "Sparkles",
-      },
-      {
-        title: "Persistent Calculation History",
-        description:
-          "Review and recall prior equations offline inside a compact, battery-friendly binary.",
-        icon: "BarChart3",
-      },
-    ],
-    link: "https://play.google.com/store/apps/details?id=com.quantumsoft.colorfulcalculator",
   },
 ];

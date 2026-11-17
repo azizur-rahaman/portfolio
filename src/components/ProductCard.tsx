@@ -9,14 +9,24 @@ export default function ProductCard({ product }: { product: Product }) {
     <article className="group rounded-xl bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] p-6 transition-all duration-[var(--motion-duration-instant)] hover:shadow-[var(--shadow-1)] flex flex-col justify-between">
       <div>
         <div className="flex items-start justify-between gap-4 mb-4">
-          <div className="w-11 h-11 rounded-xl bg-[var(--color-surface-strong)] border border-[var(--color-border-default)] flex items-center justify-center overflow-hidden text-[var(--color-text-primary)] shrink-0">
+          <div
+            className={`w-11 h-11 rounded-xl border border-[var(--color-border-default)] flex items-center justify-center overflow-hidden text-[var(--color-text-primary)] shrink-0 ${
+              product.logo && !product.logoFullBleed
+                ? "bg-white p-1.5"
+                : "bg-[var(--color-surface-strong)]"
+            }`}
+          >
             {product.logo ? (
               <Image
                 src={product.logo}
                 alt={`${product.name} Logo`}
-                width={28}
-                height={28}
-                className="object-contain"
+                width={44}
+                height={44}
+                className={
+                  product.logoFullBleed
+                    ? "w-full h-full object-cover"
+                    : "w-full h-full object-contain"
+                }
               />
             ) : (
               <AppIcon name={product.slug} size={20} />
