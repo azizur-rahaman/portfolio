@@ -32,7 +32,7 @@ export default function SkillsSection() {
       <div id="heading-skills" className="sr-only">
         Technical Skills
       </div>
-      <SectionHeader index="04" title="Skills" />
+      <SectionHeader index="05" title="Skills" />
 
       <div className="divide-y divide-[var(--color-border-muted)]">
         {portfolioData.skillGroups.map((group) => {

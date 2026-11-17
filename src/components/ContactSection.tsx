@@ -10,7 +10,7 @@ export default function ContactSection() {
       <div id="heading-contact" className="sr-only">
         Contact
       </div>
-      <SectionHeader index="05" title="Contact" />
+      <SectionHeader index="06" title="Contact" />
 
       <p className="text-[15px] leading-[24px] text-[var(--color-text-secondary)] max-w-xl">
         {contact.prompt}

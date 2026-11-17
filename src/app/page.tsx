@@ -2,7 +2,8 @@ import TopNav from "@/components/TopNav";
 import Hero from "@/components/Hero";
 import WorkSection from "@/components/WorkSection";
 import ExperienceSection from "@/components/ExperienceSection";
-import RecognitionSection from "@/components/RecognitionSection";
+import EducationSection from "@/components/EducationSection";
+import AwardsSection from "@/components/AwardsSection";
 import SkillsSection from "@/components/SkillsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -15,7 +16,8 @@ export default function Home() {
         <Hero />
         <WorkSection />
         <ExperienceSection />
-        <RecognitionSection />
+        <EducationSection />
+        <AwardsSection />
         <SkillsSection />
         <ContactSection />
       </main>

@@ -8,7 +8,8 @@ import { portfolioData } from "@/data/portfolio";
 const navItems = [
   { label: "Work", href: "/#work" },
   { label: "Experience", href: "/#experience" },
-  { label: "Awards", href: "/#recognition" },
+  { label: "Education", href: "/#education" },
+  { label: "Awards", href: "/#awards" },
   { label: "Skills", href: "/#skills" },
   { label: "Contact", href: "/#contact" },
 ];

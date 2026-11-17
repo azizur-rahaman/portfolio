@@ -60,6 +60,12 @@ export interface ExperienceItem {
   highlights: string[];
 }
 
+export interface EducationItem {
+  degree: string;
+  institution: string;
+  location?: string;
+}
+
 export interface AwardItem {
   title: string;
   event: string;
@@ -362,13 +368,24 @@ export const portfolioData = {
     },
   ] satisfies ExperienceItem[],
 
-  education: {
-    degree: "B.Sc. in Computer Science and Engineering",
-    institution: "United International University",
-    location: "Dhaka, Bangladesh",
-  },
+  education: [
+    {
+      degree: "B.Sc. in Computer Science and Engineering",
+      institution: "United International University",
+      location: "Dhaka, Bangladesh",
+    },
+    {
+      degree: "Higher Secondary Certificate (Science)",
+      institution: "Khagrachhari Cantonment Public School & College",
+    },
+  ] satisfies EducationItem[],
 
   awards: [
+    {
+      title: "2nd Runner-Up",
+      event: "Technology-Facilitated GBV Hackathon",
+      year: "2026",
+    },
     {
       title: "1st Runner-Up",
       event: "National Signature Hackathon",
