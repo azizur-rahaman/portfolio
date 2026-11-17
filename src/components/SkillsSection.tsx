@@ -1,20 +1,29 @@
 import {
+  Blocks,
+  Code2,
+  Compass,
+  Container,
   Database,
-  Layers3,
+  Server,
   Smartphone,
-  Sparkles,
   Workflow,
+  Wrench,
   type LucideIcon,
 } from "lucide-react";
 import { portfolioData, type SkillGroup } from "@/data/portfolio";
 import SectionHeader from "./SectionHeader";
+import { SkillLogo } from "./SkillLogo";
 
-const SKILL_ICONS: Record<SkillGroup["icon"], LucideIcon> = {
+const SKILL_CATEGORY_ICONS: Record<SkillGroup["icon"], LucideIcon> = {
+  code2: Code2,
   smartphone: Smartphone,
-  workflow: Workflow,
-  sparkles: Sparkles,
+  server: Server,
+  blocks: Blocks,
   database: Database,
-  layers: Layers3,
+  container: Container,
+  workflow: Workflow,
+  wrench: Wrench,
+  compass: Compass,
 };
 
 export default function SkillsSection() {
@@ -27,7 +36,7 @@ export default function SkillsSection() {
 
       <div className="divide-y divide-[var(--color-border-muted)]">
         {portfolioData.skillGroups.map((group) => {
-          const GroupIcon = SKILL_ICONS[group.icon];
+          const GroupIcon = SKILL_CATEGORY_ICONS[group.icon];
 
           return (
             <div
@@ -42,9 +51,10 @@ export default function SkillsSection() {
                 {group.items.map((skill) => (
                   <li
                     key={skill}
-                    className="px-2.5 py-0.5 text-[12px] leading-[20px] text-[var(--color-text-primary)] bg-[var(--color-surface-raised)] border border-[var(--color-border-muted)] rounded-[5px]"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[12px] leading-[18px] font-medium text-[var(--color-text-primary)] bg-[var(--color-surface-raised)] border border-[var(--color-border-muted)] rounded-[6px]"
                   >
-                    {skill}
+                    <SkillLogo skill={skill} />
+                    <span>{skill}</span>
                   </li>
                 ))}
               </ul>

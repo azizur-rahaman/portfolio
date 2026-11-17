@@ -38,11 +38,14 @@ export interface CompactAppItem {
 
 export interface ExperienceItem {
   company: string;
+  companyUrl?: string;
   role: string;
   period: string;
   location: string;
   workMode?: "Onsite" | "Remote";
   isCurrent?: boolean;
+  logo?: string;
+  logoFullBleed?: boolean;
   icon:
     | "cloud"
     | "code2"
@@ -65,7 +68,16 @@ export interface AwardItem {
 
 export interface SkillGroup {
   category: string;
-  icon: "smartphone" | "workflow" | "sparkles" | "database" | "layers";
+  icon:
+    | "code2"
+    | "smartphone"
+    | "server"
+    | "blocks"
+    | "database"
+    | "container"
+    | "workflow"
+    | "wrench"
+    | "compass";
   items: string[];
 }
 
@@ -211,11 +223,13 @@ export const portfolioData = {
   experiences: [
     {
       company: "Plexus Cloud",
+      companyUrl: "https://plexuscloud.com.bd/",
       role: "Product Engineer (Full Stack Flutter & Web)",
       period: "Apr 2026 – Present",
       location: "Dhaka, Bangladesh",
       workMode: "Onsite",
       isCurrent: true,
+      logo: "/images/companies/plexus-cloud.png",
       icon: "cloud",
       summary:
         "Owned the architecture, engineering, and delivery of a production-grade multi-tenant enterprise Data Center Management Platform for a 100+ crore BDT enterprise.",
@@ -226,10 +240,13 @@ export const portfolioData = {
     },
     {
       company: "FSA Digital Labs",
+      companyUrl: "https://play.google.com/store/apps/dev?id=8359579686827520274",
       role: "Flutter Developer (Full Stack)",
       period: "Jan 2026 – Mar 2026",
       location: "Dhaka, Bangladesh",
       workMode: "Remote",
+      logo: "/images/companies/fsa-digital-labs.webp",
+      logoFullBleed: true,
       icon: "code2",
       summary:
         "Migrated an existing native Android application to a cross-platform Flutter app paired with a full-stack web administration portal.",
@@ -254,6 +271,7 @@ export const portfolioData = {
     },
     {
       company: "Algoel",
+      companyUrl: "https://play.google.com/store/apps/dev?id=5083898539193320748",
       role: "Founder & Mobile Product Engineer",
       period: "2023 – Present",
       location: "Dhaka, Bangladesh",
@@ -272,6 +290,7 @@ export const portfolioData = {
       period: "Mar 2023 – Jul 2024",
       location: "USA",
       workMode: "Remote",
+      logo: "/images/companies/focal-point.png",
       icon: "cpu",
       summary:
         "Built a cross-platform Flutter productivity application integrated with a Bluetooth-enabled IoT Pomodoro hardware device.",
@@ -282,10 +301,12 @@ export const portfolioData = {
     },
     {
       company: "Standard Chartered | Nigeria",
+      companyUrl: "https://www.sc.com/ng/",
       role: "Flutter Developer (Full Stack)",
       period: "Oct 2022 – Feb 2023",
       location: "Nigeria",
       workMode: "Remote",
+      logo: "/images/companies/standard-chartered.png",
       icon: "landmark",
       summary:
         "Developed a QR code-based giveaway application for Standard Chartered Bank (Nigeria) internal employee campaigns.",
@@ -296,10 +317,13 @@ export const portfolioData = {
     },
     {
       company: "FSA Digital Labs",
+      companyUrl: "https://play.google.com/store/apps/dev?id=8359579686827520274",
       role: "Android Developer (Full Stack)",
       period: "Apr 2021 – Jan 2022",
       location: "Dhaka, Bangladesh",
       workMode: "Remote",
+      logo: "/images/companies/fsa-digital-labs.webp",
+      logoFullBleed: true,
       icon: "smartphone",
       summary:
         "Developed, published, and maintained a production-ready native Android application on the Google Play Store.",
@@ -309,10 +333,13 @@ export const portfolioData = {
     },
     {
       company: "Upwork",
+      companyUrl: "https://www.upwork.com",
       role: "Flutter Developer (Freelance – Top Rated)",
       period: "Sep 2019 – 2022",
       location: "Remote",
       workMode: "Remote",
+      logo: "/images/companies/upwork.jpg",
+      logoFullBleed: true,
       icon: "briefcase",
       summary:
         "Delivered 10+ Flutter applications for international clients while maintaining 100% client delivery completion.",
@@ -376,53 +403,71 @@ export const portfolioData = {
 
   skillGroups: [
     {
-      category: "Mobile & Frontend",
+      category: "Languages",
+      icon: "code2",
+      items: ["Java", "TypeScript", "Dart", "Python", "SQL"],
+    },
+    {
+      category: "Frontend & Mobile",
       icon: "smartphone",
-      items: ["Flutter", "Dart", "Next.js", "React", "TypeScript", "Kotlin", "Android Jetpack"],
+      items: ["Flutter", "React", "Next.js", "Tailwind CSS"],
     },
     {
-      category: "Backend & Cloud",
-      icon: "workflow",
-      items: ["Spring Boot", "Java", "REST APIs", "JWT & RBAC Security", "CI/CD", "Cloudflare R2"],
+      category: "Backend",
+      icon: "server",
+      items: ["Spring Boot", "NestJS", "REST APIs", "Spring Security", "JPA / Hibernate"],
     },
     {
-      category: "State, AI & Maps",
-      icon: "sparkles",
+      category: "Architecture",
+      icon: "blocks",
       items: [
-        "BLoC / Cubit",
-        "Riverpod",
-        "Provider",
-        "GetX",
-        "Google Gemini AI",
-        "Google Maps SDK",
-      ],
-    },
-    {
-      category: "Storage & Media",
-      icon: "database",
-      items: [
-        "Firebase",
-        "Drift SQLite",
-        "sqflite / SQLite WASM",
-        "ObjectBox",
-        "flutter_secure_storage",
-        "Hive",
-        "just_audio",
-        "PDF & Printing",
-      ],
-    },
-    {
-      category: "Architecture & Tools",
-      icon: "layers",
-      items: [
-        "System Design",
-        "Product Architecture",
         "Clean Architecture",
-        "GetIt",
-        "GoRouter",
+        "Domain-Driven Design",
+        "Modular Architecture",
+        "JWT",
+        "RBAC",
+        "REST API Design",
+      ],
+    },
+    {
+      category: "Databases",
+      icon: "database",
+      items: ["PostgreSQL", "MySQL", "Firebase", "SQLite", "MongoDB"],
+    },
+    {
+      category: "DevOps",
+      icon: "container",
+      items: ["Docker", "Fastlane", "GitHub Actions", "GitLab CI/CD"],
+    },
+    {
+      category: "State Management",
+      icon: "workflow",
+      items: ["Bloc / Cubit", "Riverpod", "Provider", "Redux Toolkit"],
+    },
+    {
+      category: "Tools",
+      icon: "wrench",
+      items: [
+        "Claude",
+        "Antigravity",
         "Git",
+        "GitLab",
+        "GitHub",
         "Postman",
         "Figma",
+        "Stitch",
+        "Figma Make",
+      ],
+    },
+    {
+      category: "Practices",
+      icon: "compass",
+      items: [
+        "System Design",
+        "Agile / Scrum",
+        "Product Development",
+        "Performance Optimization",
+        "Responsive UI",
       ],
     },
   ] satisfies SkillGroup[],
