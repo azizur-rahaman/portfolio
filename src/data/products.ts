@@ -464,39 +464,58 @@ export const products: Product[] = [
     slug: "classmates",
     name: "Classmates",
     logo: "/images/products/classmates-logo.webp",
-    tagline: "All-in-One Campus Social Platform & AI Study Companion",
+    tagline: "All-in-One UIU Campus Social Platform & AI Study Companion",
     description:
-      "Built for the United International University student community, Classmates unifies 12 academic departments with real-time 1-on-1 chat, campus feeds, past trimester question banks, CGPA & tuition calculators, and Professor AI powered by Google Gemini.",
+      "Built exclusively for United International University (UIU) students across 12 academic departments, Classmates combines a real-time campus discussion feed, 1-on-1 student messenger, verified university email (@*.uiu.ac.bd) authentication, official UIU notice circulars with an in-app PDF/Excel/Word viewer, a searchable past exam question bank, CGPA & tuition fee planners, referral contests, and 24/7 Professor AI powered by Google Gemini.",
     category: "Education & Campus",
-    releaseYear: "2024",
+    releaseYear: "2024–2026",
     platforms: ["Android"],
     rating: "4.2★ Google Play",
-    badge: "AI Study Assistant",
+    badge: "Verified UIU Campus Network",
     techStack: [
       "Flutter",
       "Google Gemini AI",
       "Firebase Realtime Chat",
-      "FCM",
-      "Secure Auth",
+      "FCM Push Notifications",
+      "In-App Document Viewer",
+      "Multi-Device Session Auth",
     ],
     features: [
       {
-        title: "Professor AI Study Hub",
+        title: "Professor AI (24/7 Study Assistant)",
         description:
-          "24/7 Gemini-powered coursework assistant providing step-by-step math, algorithm, and coding explanations.",
+          "Step-by-step math, algorithm, engineering, and coding solver powered by Google Gemini AI.",
         icon: "Sparkles",
       },
       {
-        title: "Campus Messenger & Feed",
+        title: "Campus Feed & 1-on-1 Messenger",
         description:
-          "Real-time private student chat and discussion feeds spanning 12 university departments.",
+          "Student discussion feed with media compression, emoji reactions, threaded comments, and real-time private chat across 12 departments.",
         icon: "Cloud",
       },
       {
-        title: "Exam Bank & CGPA Tools",
+        title: "Official Notices & Question Bank",
         description:
-          "Past trimester question archive, official academic notices, CGPA planner, and credit tuition calculator.",
+          "Real-time UIU circulars with built-in PDF, Excel, and Word viewer plus searchable mid-term and final exam papers with offline bookmarks.",
+        icon: "BookOpen",
+      },
+      {
+        title: "Academic Calendar, CGPA & Tuition Planner",
+        description:
+          "Trimester deadlines, cumulative CGPA forecaster, and credit tuition estimator supporting 0%–100% scholarship waivers.",
         icon: "BarChart3",
+      },
+      {
+        title: "Refer & Win Referral Leaderboard",
+        description:
+          "Verified student referral codes with real-time university leaderboard tracking and instant signup push alerts.",
+        icon: "UserCheck",
+      },
+      {
+        title: "Verified Security & Session Control",
+        description:
+          "Official @*.uiu.ac.bd email verification, Midnight Slate dark mode, and remote multi-device session revocation.",
+        icon: "ShieldCheck",
       },
     ],
     link: "https://play.google.com/store/apps/details?id=com.algoel.uiu_students",

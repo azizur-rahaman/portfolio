@@ -292,9 +292,10 @@ export const portfolioData = {
     {
       slug: "classmates",
       name: "Classmates",
-      tagline: "University campus social network, exam bank & Gemini-powered Professor AI",
+      tagline:
+        "All-in-one UIU campus social platform with real-time chat, question bank, CGPA planner & Gemini Professor AI",
       stack: "Flutter · Gemini AI · Firebase",
-      year: "2024",
+      year: "2024–2026",
       logo: "/images/products/classmates-logo.webp",
       icon: "graduationCap",
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.algoel.uiu_students",
