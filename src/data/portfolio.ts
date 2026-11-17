@@ -41,8 +41,18 @@ export interface ExperienceItem {
   role: string;
   period: string;
   location: string;
+  workMode?: "Onsite" | "Remote";
   isCurrent?: boolean;
-  icon: "shoppingBag" | "rocket" | "users" | "globe" | "playCircle";
+  icon:
+    | "cloud"
+    | "code2"
+    | "shoppingBag"
+    | "rocket"
+    | "cpu"
+    | "landmark"
+    | "smartphone"
+    | "briefcase"
+    | "graduationCap";
   summary: string;
   highlights: string[];
 }
@@ -64,7 +74,7 @@ export const portfolioData = {
     name: "Azizur Rahaman",
     shortName: "Azizur",
     initials: "AR",
-    role: "Flutter Developer · Mobile Product Engineer",
+    role: "Product Engineer · Flutter, Next.js, Spring Boot & Cloud",
     location: "Dhaka, Bangladesh",
     timeZone: "Asia/Dhaka",
     email: "frazizur.rahaman@gmail.com",
@@ -74,7 +84,7 @@ export const portfolioData = {
     github: "https://github.com/azizur-rahaman",
     algoelGithub: "https://github.com/azizur-rahaman/algoel",
     googlePlayDev: "https://play.google.com/store/apps/dev?id=5083898539193320748",
-    linkedin: "https://linkedin.com/in/azizur_rahaman",
+    linkedin: "https://linkedin.com/in/azizur-rahaman",
     cvPath: "/Flutter-Developer-Azizur-Rahaman.pdf",
     cvFilename: "Flutter-Developer-Azizur-Rahaman.pdf",
   },
@@ -200,17 +210,46 @@ export const portfolioData = {
 
   experiences: [
     {
+      company: "Plexus Cloud",
+      role: "Product Engineer (Full Stack Flutter & Web)",
+      period: "Apr 2026 – Present",
+      location: "Dhaka, Bangladesh",
+      workMode: "Onsite",
+      isCurrent: true,
+      icon: "cloud",
+      summary:
+        "Owned the architecture, engineering, and delivery of a production-grade multi-tenant enterprise Data Center Management Platform for a 100+ crore BDT enterprise.",
+      highlights: [
+        "Built a Spring Boot backend, three Next.js web portals, and a companion Flutter application end to end.",
+        "Streamlined infrastructure operations, client services, and field workforce management across multi-tenant workflows.",
+      ],
+    },
+    {
+      company: "FSA Digital Labs",
+      role: "Flutter Developer (Full Stack)",
+      period: "Jan 2026 – Mar 2026",
+      location: "Dhaka, Bangladesh",
+      workMode: "Remote",
+      icon: "code2",
+      summary:
+        "Migrated an existing native Android application to a cross-platform Flutter app paired with a full-stack web administration portal.",
+      highlights: [
+        "Integrated Firebase, push notifications, and cloud image management inside the Flutter client.",
+        "Built a Next.js admin panel for category management, content publishing, scheduled uploads, and app administration.",
+      ],
+    },
+    {
       company: "Zabihaty LLC",
-      role: "Flutter Developer",
-      period: "May 2023 – Dec 2025",
-      location: "USA Remote",
+      role: "Product Engineer",
+      period: "Aug 2024 – Dec 2025",
+      location: "USA",
+      workMode: "Remote",
       icon: "shoppingBag",
       summary:
-        "Developed and maintained 3 cross-platform Flutter applications with shared codebases across e-commerce and catering workflows.",
+        "Engineered and maintained 3 cross-platform Flutter applications powering e-commerce and event catering workflows.",
       highlights: [
-        "Implemented 90+ responsive UI screens from Figma across multiple device sizes.",
-        "Integrated 15+ REST API endpoints for authentication, product catalog, orders, and notifications.",
-        "Managed state across 10+ feature modules with Riverpod, Provider, and Bloc while resolving 30+ UI, API, and state bugs.",
+        "Implemented 90+ responsive Figma UI screens and integrated 50+ REST API endpoints.",
+        "Managed state across 10+ modules with Riverpod, Provider, and Bloc while resolving 30+ UI and API bugs and improving screen performance.",
       ],
     },
     {
@@ -221,51 +260,77 @@ export const portfolioData = {
       isCurrent: true,
       icon: "rocket",
       summary:
-        "Independent mobile product studio designing, engineering, and publishing high-utility Android and Flutter applications on Google Play.",
+        "Independent mobile product studio designing, building, and publishing 10 Android and Flutter apps on Google Play with 110K+ total downloads across products.",
       highlights: [
-        "Built and shipped 10 utility, fintech, rental, campus, and Bengali-first apps including Lenden, weightnote, Bhalo Kaj, Al-Qur'an Bangla, GhorLagbee, Classmates, SafeQR, and News App Flash.",
-        "Engineered offline-first local persistence (Drift SQLite, ObjectBox, SQLite WASM), vector PDF invoicing, and privacy-focused architectures.",
+        "Shipped Lenden, weightnote, Bhalo Kaj, Al-Qur'an Bangla, GhorLagbee, Classmates, SafeQR, News App Flash, FrameTastic, and ColorFul Calculator.",
+        "Engineered offline-first persistence (Drift SQLite, ObjectBox, SQLite WASM), vector PDF invoicing, and privacy-first architectures.",
       ],
     },
     {
-      company: "UIU Developers Hub",
-      role: "Flutter Developer",
-      period: "Feb 2024 – Present",
-      location: "United International University",
-      isCurrent: true,
-      icon: "users",
+      company: "Focal Point Technology USA",
+      role: "Flutter Developer (Full Stack)",
+      period: "Mar 2023 – Jul 2024",
+      location: "USA",
+      workMode: "Remote",
+      icon: "cpu",
       summary:
-        "Collaborating in a 5–6 member engineering team to design and build Flutter-based academic and demonstration applications.",
+        "Built a cross-platform Flutter productivity application integrated with a Bluetooth-enabled IoT Pomodoro hardware device.",
       highlights: [
-        "Built modular UI features using structured widgets, navigation flows, and state management.",
-        "Maintained Git-based workflows for version control, pull requests, and peer code reviews.",
+        "Implemented customizable focus sessions, productivity analytics, Firebase authentication, and real-time BLE device synchronization.",
+        "Optimized application performance and scalable client architecture.",
+      ],
+    },
+    {
+      company: "Standard Chartered | Nigeria",
+      role: "Flutter Developer (Full Stack)",
+      period: "Oct 2022 – Feb 2023",
+      location: "Nigeria",
+      workMode: "Remote",
+      icon: "landmark",
+      summary:
+        "Developed a QR code-based giveaway application for Standard Chartered Bank (Nigeria) internal employee campaigns.",
+      highlights: [
+        "Implemented QR code scanning, randomized winner selection, and real-time prize validation.",
+        "Added device fingerprinting to prevent duplicate campaign participation.",
+      ],
+    },
+    {
+      company: "FSA Digital Labs",
+      role: "Android Developer (Full Stack)",
+      period: "Apr 2021 – Jan 2022",
+      location: "Dhaka, Bangladesh",
+      workMode: "Remote",
+      icon: "smartphone",
+      summary:
+        "Developed, published, and maintained a production-ready native Android application on the Google Play Store.",
+      highlights: [
+        "Implemented daily quotes, image-based content feeds, category browsing, favorites, sharing, and offline caching.",
       ],
     },
     {
       company: "Upwork",
       role: "Flutter Developer (Freelance – Top Rated)",
-      period: "Sep 2019 – Present",
+      period: "Sep 2019 – 2022",
       location: "Remote",
-      isCurrent: true,
-      icon: "globe",
+      workMode: "Remote",
+      icon: "briefcase",
       summary:
-        "Partnering with international clients to ship reliable cross-platform mobile apps and feature integrations.",
+        "Delivered 10+ Flutter applications for international clients while maintaining 100% client delivery completion.",
       highlights: [
-        "Delivered 5+ Flutter applications and features with 100% client delivery completion.",
-        "Implemented JWT authentication, REST API integration, and real-time updates with clean, documented code.",
+        "Implemented JWT authentication, REST API integrations, and real-time updates with clean, documented code.",
       ],
     },
     {
-      company: "YouTube",
-      role: "Instructor & Content Creator",
-      period: "May 2025 – Present",
-      location: "Bangladesh",
+      company: "Flutter Training & Community",
+      role: "Instructor & Mentor · YouTube & UIU Developers Hub",
+      period: "2024 – Present",
+      location: "Dhaka, Bangladesh",
       isCurrent: true,
-      icon: "playCircle",
+      icon: "graduationCap",
       summary:
-        "Teaching beginner-to-intermediate Flutter development to hundreds of learners through practical video walkthroughs.",
+        "Mentored 150+ students through structured Flutter training, collaborative team projects, and 15+ practical video tutorials.",
       highlights: [
-        "Created 15+ Flutter tutorial videos covering widgets, state management, and scalable app structure.",
+        "Guided student developers at UIU Developers Hub across Git workflows, pull requests, state management, and Clean Architecture.",
       ],
     },
   ] satisfies ExperienceItem[],
@@ -311,23 +376,23 @@ export const portfolioData = {
 
   skillGroups: [
     {
-      category: "Mobile & UI",
+      category: "Mobile & Frontend",
       icon: "smartphone",
-      items: ["Flutter", "Dart", "Kotlin", "Android Jetpack", "Responsive UI & Navigation"],
+      items: ["Flutter", "Dart", "Next.js", "React", "TypeScript", "Kotlin", "Android Jetpack"],
     },
     {
-      category: "State Management",
+      category: "Backend & Cloud",
       icon: "workflow",
-      items: ["BLoC / Cubit", "Riverpod", "Provider", "GetX"],
+      items: ["Spring Boot", "Java", "REST APIs", "JWT & RBAC Security", "CI/CD", "Cloudflare R2"],
     },
     {
-      category: "APIs, AI & Maps",
+      category: "State, AI & Maps",
       icon: "sparkles",
       items: [
-        "REST APIs",
-        "JSON",
-        "Dio",
-        "JWT & Refresh-Token Sessions",
+        "BLoC / Cubit",
+        "Riverpod",
+        "Provider",
+        "GetX",
         "Google Gemini AI",
         "Google Maps SDK",
       ],
@@ -340,7 +405,6 @@ export const portfolioData = {
         "Drift SQLite",
         "sqflite / SQLite WASM",
         "ObjectBox",
-        "Cloudflare R2",
         "flutter_secure_storage",
         "Hive",
         "just_audio",
@@ -350,7 +414,16 @@ export const portfolioData = {
     {
       category: "Architecture & Tools",
       icon: "layers",
-      items: ["Clean Architecture", "GetIt", "GoRouter", "Clean Code", "Git", "Postman", "Figma"],
+      items: [
+        "System Design",
+        "Product Architecture",
+        "Clean Architecture",
+        "GetIt",
+        "GoRouter",
+        "Git",
+        "Postman",
+        "Figma",
+      ],
     },
   ] satisfies SkillGroup[],
 

@@ -1,20 +1,28 @@
 import {
-  Globe,
-  PlayCircle,
+  BriefcaseBusiness,
+  Cloud,
+  Code2,
+  Cpu,
+  GraduationCap,
+  Landmark,
   Rocket,
   ShoppingBag,
-  Users,
+  Smartphone,
   type LucideIcon,
 } from "lucide-react";
 import { portfolioData, type ExperienceItem } from "@/data/portfolio";
 import SectionHeader from "./SectionHeader";
 
 const EXPERIENCE_ICONS: Record<ExperienceItem["icon"], LucideIcon> = {
+  cloud: Cloud,
+  code2: Code2,
   shoppingBag: ShoppingBag,
   rocket: Rocket,
-  users: Users,
-  globe: Globe,
-  playCircle: PlayCircle,
+  cpu: Cpu,
+  landmark: Landmark,
+  smartphone: Smartphone,
+  briefcase: BriefcaseBusiness,
+  graduationCap: GraduationCap,
 };
 
 export default function ExperienceSection() {
@@ -30,7 +38,7 @@ export default function ExperienceSection() {
           const RoleIcon = EXPERIENCE_ICONS[exp.icon];
 
           return (
-            <article key={`${exp.company}-${exp.role}`}>
+            <article key={`${exp.company}-${exp.role}-${exp.period}`}>
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
                 <div className="flex items-start gap-3">
                   <div className="w-8 h-8 rounded-lg bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] flex items-center justify-center shrink-0 text-[var(--color-text-primary)] mt-0.5">
@@ -45,6 +53,11 @@ export default function ExperienceSection() {
                       {exp.isCurrent && (
                         <span className="inline-flex items-center px-2 py-0.5 text-[11px] leading-[14px] font-medium text-[var(--color-status-live)] bg-[var(--color-pill-green-bg)] border border-[var(--color-pill-green-border)] rounded-full">
                           Current
+                        </span>
+                      )}
+                      {exp.workMode && (
+                        <span className="inline-flex items-center px-2 py-0.5 text-[11px] leading-[14px] font-medium text-[var(--color-text-secondary)] bg-[var(--color-surface-raised)] border border-[var(--color-border-muted)] rounded-full">
+                          {exp.workMode}
                         </span>
                       )}
                     </div>

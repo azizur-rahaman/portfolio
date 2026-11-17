@@ -21,25 +21,25 @@ const notoSansBengali = Noto_Sans_Bengali({
 });
 
 export const metadata: Metadata = {
-  title: "Azizur Rahaman — Flutter Developer & Mobile Product Engineer",
+  title: "Azizur Rahaman — Product Engineer (Flutter, Next.js, Spring Boot)",
   description:
-    "Flutter Developer in Dhaka with hands-on experience delivering 3+ production-ready cross-platform applications. Strong in Clean Architecture, Riverpod, BLoC, and REST API integration.",
+    "Product Engineer with 5+ years of software engineering experience building scalable digital products across mobile, web, backend, and cloud using Flutter, Next.js, Spring Boot, and Java.",
   keywords: [
     "Azizur Rahaman",
+    "Product Engineer",
     "Flutter Developer",
-    "Mobile Product Engineer",
-    "Dart",
+    "Next.js",
+    "Spring Boot",
+    "Java",
     "Clean Architecture",
-    "Riverpod",
-    "BLoC",
     "Dhaka",
     "Bangladesh",
   ],
   authors: [{ name: "Azizur Rahaman", url: "https://azizurrahaman.com" }],
   openGraph: {
-    title: "Azizur Rahaman — Flutter Developer & Mobile Product Engineer",
+    title: "Azizur Rahaman — Product Engineer",
     description:
-      "Flutter Developer in Dhaka delivering production-ready cross-platform mobile applications with Clean Architecture, Riverpod, and BLoC.",
+      "Product Engineer with 5+ years of experience shipping scalable products across mobile, web, backend, and cloud (110K+ downloads).",
     type: "website",
     url: "https://azizurrahaman.com",
   },

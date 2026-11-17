@@ -1,13 +1,16 @@
 import Link from "next/link";
 import {
+  ArrowDownToLine,
   ArrowUpRight,
   Blocks,
-  BriefcaseBusiness,
   FileDown,
+  GraduationCap,
+  Layers,
   LayoutGrid,
   Mail,
-  Rocket,
-  ShoppingBag,
+  Server,
+  Smartphone,
+  Trophy,
 } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import LocalTime from "./LocalTime";
@@ -57,7 +60,7 @@ export default function Hero() {
   return (
     <section aria-label="Introduction" className="pt-10 pb-16 sm:pt-14 sm:pb-20">
       {/* Identity Block */}
-      <div className="flex items-center gap-4 sm:gap-5 mb-8">
+      <div className="flex items-center gap-4 sm:gap-5 mb-7">
         <div
           aria-hidden="true"
           className="w-16 h-16 sm:w-[72px] sm:h-[72px] rounded-2xl bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] flex items-center justify-center shrink-0 select-none"
@@ -78,65 +81,65 @@ export default function Hero() {
         </div>
       </div>
 
+      {/* Achievement Highlights Strip */}
+      <ul
+        aria-label="Key highlights"
+        className="flex flex-wrap items-center gap-2 mb-6 list-none p-0 m-0"
+      >
+        <li className="inline-chip inline-chip--amber text-[13px] py-1 px-2.5">
+          <Trophy size={13} strokeWidth={2} aria-hidden="true" />
+          <span>2× National Hackathon Winner</span>
+        </li>
+        <li className="inline-chip inline-chip--green text-[13px] py-1 px-2.5">
+          <ArrowDownToLine size={13} strokeWidth={2} className="text-[var(--color-status-live)]" aria-hidden="true" />
+          <span>Built products with 110K+ total downloads</span>
+        </li>
+        <li className="inline-chip inline-chip--blue text-[13px] py-1 px-2.5">
+          <GraduationCap size={13} strokeWidth={2} className="text-[var(--color-status-active)]" aria-hidden="true" />
+          <span>Mentored 150+ students through Flutter training</span>
+        </li>
+      </ul>
+
       {/* Structured Bio Paragraphs */}
       <div className="space-y-4 text-[16px] leading-[26px] text-[var(--color-text-primary)]">
         <p>
-          I&apos;m a Flutter developer in Dhaka shipping production mobile applications.
-          Previously at{" "}
+          <span className="font-medium">Product Engineer</span> with{" "}
+          <span className="font-medium">5+ years of software engineering experience</span>{" "}
+          and <span className="font-medium">10+ years of programming experience</span>,
+          building and shipping scalable digital products from idea to production.
+        </p>
+
+        <p>
+          Experienced across mobile, web, backend, and cloud, delivering enterprise
+          platforms using{" "}
+          <span className="inline-chip inline-chip--blue">
+            <Smartphone size={12} strokeWidth={2} className="text-[var(--color-status-active)]" aria-hidden="true" />
+            Flutter
+          </span>{" "}
+          <span className="inline-chip">
+            <Layers size={12} strokeWidth={2} aria-hidden="true" />
+            Next.js
+          </span>{" "}
           <span className="inline-chip inline-chip--green">
-            <ShoppingBag size={12} strokeWidth={2} className="text-[var(--color-status-live)]" aria-hidden="true" />
-            Zabihaty LLC
-          </span>
-          , I maintained 3 cross-platform apps, implemented{" "}
-          <span className="font-medium">90+ Figma UI screens</span>, and integrated{" "}
-          <span className="font-medium">15+ REST APIs</span>.
-        </p>
-
-        <p>
-          Under{" "}
-          <a
-            href={profile.googlePlayDev}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-chip inline-chip--blue hover:opacity-85 transition-opacity"
-          >
-            <Rocket size={12} strokeWidth={2} className="text-[var(--color-status-active)]" aria-hidden="true" />
-            Algoel
-          </a>
-          , I have built and published <span className="font-medium">10 Android &amp; Flutter apps</span> on
-          Google Play—including{" "}
-          <Link href="/products/lenden" className="underline underline-offset-4 decoration-[var(--color-border-default)] hover:decoration-[var(--color-text-primary)]">
-            Lenden
-          </Link>
-          ,{" "}
-          <Link href="/products/weightnote" className="underline underline-offset-4 decoration-[var(--color-border-default)] hover:decoration-[var(--color-text-primary)]">
-            weightnote
-          </Link>
-          ,{" "}
-          <Link href="/products/bhalo-kaj" className="underline underline-offset-4 decoration-[var(--color-border-default)] hover:decoration-[var(--color-text-primary)]">
-            Bhalo Kaj
-          </Link>
-          , and{" "}
-          <Link href="/products/classmates" className="underline underline-offset-4 decoration-[var(--color-border-default)] hover:decoration-[var(--color-text-primary)]">
-            Classmates
-          </Link>
-          . On{" "}
+            <Server size={12} strokeWidth={2} className="text-[var(--color-status-live)]" aria-hidden="true" />
+            Spring Boot
+          </span>{" "}
           <span className="inline-chip inline-chip--amber">
-            <BriefcaseBusiness size={12} strokeWidth={2} aria-hidden="true" />
-            Upwork
+            Java
           </span>
-          , I am a Top Rated freelancer with 5+ international apps delivered at 100% completion.
+          , and modern web technologies.
         </p>
 
         <p>
-          I study Computer Science &amp; Engineering at{" "}
-          <span className="font-medium">United International University</span>, build with{" "}
+          Skilled in product architecture, system design, REST APIs, JWT &amp; RBAC
+          security, CI/CD,{" "}
           <span className="inline-chip inline-chip--violet">
             <Blocks size={12} strokeWidth={2} aria-hidden="true" />
             Clean Architecture
-          </span>{" "}
-          at <span className="font-medium">UIU Developers Hub</span>, and share Flutter
-          engineering tutorials on YouTube (15+ lessons).
+          </span>
+          , and full-stack application development. Passionate about solving real user
+          problems through rapid iteration, high-quality engineering, and end-to-end
+          product ownership.
         </p>
       </div>
 
