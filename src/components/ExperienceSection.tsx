@@ -1,5 +1,21 @@
-import { portfolioData } from "@/data/portfolio";
+import {
+  Globe,
+  PlayCircle,
+  Rocket,
+  ShoppingBag,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
+import { portfolioData, type ExperienceItem } from "@/data/portfolio";
 import SectionHeader from "./SectionHeader";
+
+const EXPERIENCE_ICONS: Record<ExperienceItem["icon"], LucideIcon> = {
+  shoppingBag: ShoppingBag,
+  rocket: Rocket,
+  users: Users,
+  globe: Globe,
+  playCircle: PlayCircle,
+};
 
 export default function ExperienceSection() {
   return (
@@ -10,40 +26,53 @@ export default function ExperienceSection() {
       <SectionHeader index="02" title="Experience" />
 
       <div className="space-y-9">
-        {portfolioData.experiences.map((exp) => (
-          <article key={`${exp.company}-${exp.role}`}>
-            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-              <div className="flex items-center gap-2 flex-wrap">
-                <h3 className="text-[17px] leading-[24px] font-medium text-[var(--color-text-primary)]">
-                  {exp.company}
-                </h3>
-                {exp.isCurrent && (
-                  <span className="inline-flex items-center px-2 py-0.5 text-[11px] leading-[14px] font-medium text-[var(--color-status-live)] bg-[var(--color-pill-green-bg)] border border-[var(--color-pill-green-border)] rounded-full">
-                    Current
-                  </span>
-                )}
+        {portfolioData.experiences.map((exp) => {
+          const RoleIcon = EXPERIENCE_ICONS[exp.icon];
+
+          return (
+            <article key={`${exp.company}-${exp.role}`}>
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] flex items-center justify-center shrink-0 text-[var(--color-text-primary)] mt-0.5">
+                    <RoleIcon size={15} strokeWidth={1.75} aria-hidden="true" />
+                  </div>
+
+                  <div>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="text-[17px] leading-[24px] font-medium text-[var(--color-text-primary)]">
+                        {exp.company}
+                      </h3>
+                      {exp.isCurrent && (
+                        <span className="inline-flex items-center px-2 py-0.5 text-[11px] leading-[14px] font-medium text-[var(--color-status-live)] bg-[var(--color-pill-green-bg)] border border-[var(--color-pill-green-border)] rounded-full">
+                          Current
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-[13px] leading-[20px] font-medium text-[var(--color-text-secondary)] mt-0.5">
+                      {exp.role}
+                    </p>
+                  </div>
+                </div>
+
+                <p className="font-mono text-[12px] leading-[18px] text-[var(--color-text-secondary)] shrink-0 pl-11 sm:pl-0 sm:pt-1">
+                  {exp.period} · {exp.location}
+                </p>
               </div>
 
-              <p className="font-mono text-[12px] leading-[18px] text-[var(--color-text-secondary)] shrink-0">
-                {exp.period} · {exp.location}
-              </p>
-            </div>
+              <div className="sm:pl-11">
+                <p className="text-[14px] leading-[22px] text-[var(--color-text-primary)] mt-2.5">
+                  {exp.summary}
+                </p>
 
-            <p className="text-[13px] leading-[20px] font-medium text-[var(--color-text-secondary)] mt-0.5">
-              {exp.role}
-            </p>
-
-            <p className="text-[14px] leading-[22px] text-[var(--color-text-primary)] mt-2.5">
-              {exp.summary}
-            </p>
-
-            <ul className="mt-2 space-y-1.5 pl-4 list-disc text-[14px] leading-[21px] text-[var(--color-text-secondary)] marker:text-[var(--color-border-default)]">
-              {exp.highlights.map((highlight) => (
-                <li key={highlight}>{highlight}</li>
-              ))}
-            </ul>
-          </article>
-        ))}
+                <ul className="mt-2 space-y-1.5 pl-4 list-disc text-[14px] leading-[21px] text-[var(--color-text-secondary)] marker:text-[var(--color-border-default)]">
+                  {exp.highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </section>
   );

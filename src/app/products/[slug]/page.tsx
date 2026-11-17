@@ -25,6 +25,7 @@ import { products } from "@/data/products";
 import TopNav from "@/components/TopNav";
 import Footer from "@/components/Footer";
 import SectionHeader from "@/components/SectionHeader";
+import { AppIcon } from "@/components/AppIcon";
 
 const IconMap: Record<string, LucideIcon> = {
   ShieldCheck,
@@ -84,8 +85,8 @@ export default async function ProductDetailPage({
         {/* Product Header */}
         <header className="pb-10 border-b border-[var(--color-border-default)]">
           <div className="flex items-center gap-4 mb-6">
-            {product.logo && (
-              <div className="w-16 h-16 rounded-xl bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] p-2.5 flex items-center justify-center shrink-0 overflow-hidden">
+            <div className="w-16 h-16 rounded-2xl bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] p-2.5 flex items-center justify-center shrink-0 overflow-hidden text-[var(--color-text-primary)]">
+              {product.logo ? (
                 <Image
                   src={product.logo}
                   alt={`${product.name} Logo`}
@@ -93,8 +94,10 @@ export default async function ProductDetailPage({
                   height={48}
                   className="object-contain"
                 />
-              </div>
-            )}
+              ) : (
+                <AppIcon name={product.slug} size={28} />
+              )}
+            </div>
 
             <div>
               <div className="flex flex-wrap items-center gap-2 text-[11px] font-mono uppercase tracking-wider text-[var(--color-text-secondary)]">

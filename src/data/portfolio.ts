@@ -1,3 +1,16 @@
+export type AppIconName =
+  | "wallet"
+  | "shoppingBag"
+  | "scale"
+  | "heartHandshake"
+  | "bookOpen"
+  | "newspaper"
+  | "qrCode"
+  | "building2"
+  | "graduationCap"
+  | "frame"
+  | "calculator";
+
 export interface WorkItem {
   id: string;
   title: string;
@@ -5,6 +18,8 @@ export interface WorkItem {
   status: "Live" | "Active";
   description: string;
   tags: string[];
+  logo?: string;
+  icon: AppIconName;
   internalHref?: string;
   externalHref: string;
   externalLabel: string;
@@ -16,6 +31,8 @@ export interface CompactAppItem {
   tagline: string;
   stack: string;
   year: string;
+  logo?: string;
+  icon: AppIconName;
   playStoreUrl: string;
 }
 
@@ -25,6 +42,7 @@ export interface ExperienceItem {
   period: string;
   location: string;
   isCurrent?: boolean;
+  icon: "shoppingBag" | "rocket" | "users" | "globe" | "playCircle";
   summary: string;
   highlights: string[];
 }
@@ -37,6 +55,7 @@ export interface AwardItem {
 
 export interface SkillGroup {
   category: string;
+  icon: "smartphone" | "workflow" | "sparkles" | "database" | "layers";
   items: string[];
 }
 
@@ -66,6 +85,8 @@ export const portfolioData = {
       title: "Lenden",
       subtitle: "Peer-to-Peer Finance & Budgeting App · Algoel Studio",
       status: "Live",
+      logo: "/images/products/lenden-logo.png",
+      icon: "wallet",
       description:
         "Financial ecosystem combining two-way P2P debt/credit handshakes, multi-wallet analytics, biometric & 4-digit PIN security, and an intelligent daily spending planner with English and Bengali localization.",
       tags: ["Flutter", "BLoC", "Clean Architecture", "Firebase", "ObjectBox", "Cloudflare R2"],
@@ -78,6 +99,7 @@ export const portfolioData = {
       title: "Zabihaty",
       subtitle: "E-Commerce & Event Catering App · Zabihaty LLC",
       status: "Live",
+      icon: "shoppingBag",
       description:
         "Production cross-platform mobile application for meat e-commerce and event catering, engineered with Clean Architecture, JWT refresh-token session roaming, and real-time order logistics across 90+ Figma screens.",
       tags: ["Flutter", "Riverpod", "REST APIs", "JWT", "Dio", "Clean Architecture"],
@@ -90,6 +112,7 @@ export const portfolioData = {
       title: "weightnote (ডিজিটাল ওজন খাতা)",
       subtitle: "Offline Weight Batch Ledger & PDF Invoicing · Algoel Studio",
       status: "Live",
+      icon: "scale",
       description:
         "Offline-first digital weighing ledger for wholesale markets and agriculture featuring a custom batch numpad, live Maund (৪০ কেজি = ১ মণ) & Kg conversion, real-time pricing in Taka (৳), and multi-page PDF invoicing.",
       tags: ["Flutter", "BLoC", "SQLite / WASM", "PDF & Printing", "GetIt"],
@@ -106,6 +129,7 @@ export const portfolioData = {
       tagline: "Daily good-deeds habit tracker with GitHub-style heatmap & Bengali PDF reports",
       stack: "Flutter · BLoC · Drift SQLite",
       year: "2026",
+      icon: "heartHandshake",
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.algoel.bhalokaj",
     },
     {
@@ -114,6 +138,7 @@ export const portfolioData = {
       tagline: "114 Surahs with Bengali translation, word meanings & multi-Qari audio streaming",
       stack: "Flutter · BLoC · just_audio",
       year: "2026",
+      icon: "bookOpen",
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.algoel.alquran",
     },
     {
@@ -122,6 +147,7 @@ export const portfolioData = {
       tagline: "Tinder-style swipeable flashcard news reader curated for Bangladesh",
       stack: "Flutter · BLoC · RSS",
       year: "2026",
+      icon: "newspaper",
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.algoel.news_app_flash",
     },
     {
@@ -130,6 +156,8 @@ export const portfolioData = {
       tagline: "Offline QR & barcode scanner/generator with encrypted local JSON ledger",
       stack: "Flutter · GetX · Mobile Scanner",
       year: "2026",
+      logo: "/images/products/safeqr/icon.png",
+      icon: "qrCode",
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.algoel.safeqr_qr_and_barcode_scanner",
     },
     {
@@ -138,6 +166,7 @@ export const portfolioData = {
       tagline: "Zero-brokerage GPS To-Let discovery with Google Maps & direct owner calls",
       stack: "Flutter · Google Maps · Firebase",
       year: "2024",
+      icon: "building2",
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.algoel.ghorlagbe",
     },
     {
@@ -146,6 +175,7 @@ export const portfolioData = {
       tagline: "University campus social network, exam bank & Gemini-powered Professor AI",
       stack: "Flutter · Gemini AI · Firebase",
       year: "2024",
+      icon: "graduationCap",
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.algoel.uiu_students",
     },
     {
@@ -154,6 +184,7 @@ export const portfolioData = {
       tagline: "Native photo frame designer with 100+ borders and lossless Canvas 2D filters",
       stack: "Kotlin · Canvas 2D",
       year: "2023",
+      icon: "frame",
       playStoreUrl: "https://play.google.com/store/apps/details?id=xyz.quantumsoftwares.frametastic",
     },
     {
@@ -162,6 +193,7 @@ export const portfolioData = {
       tagline: "Lightweight (<10MB) themeable calculator with haptic feedback & history log",
       stack: "Kotlin · Android Jetpack",
       year: "2023",
+      icon: "calculator",
       playStoreUrl: "https://play.google.com/store/apps/details?id=com.quantumsoft.colorfulcalculator",
     },
   ] satisfies CompactAppItem[],
@@ -172,6 +204,7 @@ export const portfolioData = {
       role: "Flutter Developer",
       period: "May 2023 – Dec 2025",
       location: "USA Remote",
+      icon: "shoppingBag",
       summary:
         "Developed and maintained 3 cross-platform Flutter applications with shared codebases across e-commerce and catering workflows.",
       highlights: [
@@ -186,6 +219,7 @@ export const portfolioData = {
       period: "2023 – Present",
       location: "Dhaka, Bangladesh",
       isCurrent: true,
+      icon: "rocket",
       summary:
         "Independent mobile product studio designing, engineering, and publishing high-utility Android and Flutter applications on Google Play.",
       highlights: [
@@ -199,6 +233,7 @@ export const portfolioData = {
       period: "Feb 2024 – Present",
       location: "United International University",
       isCurrent: true,
+      icon: "users",
       summary:
         "Collaborating in a 5–6 member engineering team to design and build Flutter-based academic and demonstration applications.",
       highlights: [
@@ -212,6 +247,7 @@ export const portfolioData = {
       period: "Sep 2019 – Present",
       location: "Remote",
       isCurrent: true,
+      icon: "globe",
       summary:
         "Partnering with international clients to ship reliable cross-platform mobile apps and feature integrations.",
       highlights: [
@@ -225,6 +261,7 @@ export const portfolioData = {
       period: "May 2025 – Present",
       location: "Bangladesh",
       isCurrent: true,
+      icon: "playCircle",
       summary:
         "Teaching beginner-to-intermediate Flutter development to hundreds of learners through practical video walkthroughs.",
       highlights: [
@@ -275,14 +312,17 @@ export const portfolioData = {
   skillGroups: [
     {
       category: "Mobile & UI",
+      icon: "smartphone",
       items: ["Flutter", "Dart", "Kotlin", "Android Jetpack", "Responsive UI & Navigation"],
     },
     {
       category: "State Management",
+      icon: "workflow",
       items: ["BLoC / Cubit", "Riverpod", "Provider", "GetX"],
     },
     {
       category: "APIs, AI & Maps",
+      icon: "sparkles",
       items: [
         "REST APIs",
         "JSON",
@@ -294,6 +334,7 @@ export const portfolioData = {
     },
     {
       category: "Storage & Media",
+      icon: "database",
       items: [
         "Firebase",
         "Drift SQLite",
@@ -308,6 +349,7 @@ export const portfolioData = {
     },
     {
       category: "Architecture & Tools",
+      icon: "layers",
       items: ["Clean Architecture", "GetIt", "GoRouter", "Clean Code", "Git", "Postman", "Figma"],
     },
   ] satisfies SkillGroup[],
