@@ -7,10 +7,7 @@ export default function EducationSection() {
 
   return (
     <section id="education" aria-labelledby="heading-education" className="pb-16 sm:pb-20">
-      <div id="heading-education" className="sr-only">
-        Education
-      </div>
-      <SectionHeader index="03" title="Education" />
+      <SectionHeader index="03" title="Education" headingId="heading-education" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {education.map((item, idx) => {

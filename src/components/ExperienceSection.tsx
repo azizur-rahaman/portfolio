@@ -30,10 +30,7 @@ const EXPERIENCE_ICONS: Record<ExperienceItem["icon"], LucideIcon> = {
 export default function ExperienceSection() {
   return (
     <section id="experience" aria-labelledby="heading-experience" className="pb-16 sm:pb-20">
-      <div id="heading-experience" className="sr-only">
-        Experience
-      </div>
-      <SectionHeader index="02" title="Experience" />
+      <SectionHeader index="02" title="Experience" headingId="heading-experience" />
 
       <div className="space-y-9">
         {portfolioData.experiences.map((exp) => {

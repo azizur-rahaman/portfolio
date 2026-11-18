@@ -1,7 +1,33 @@
+import type { Metadata } from "next";
 import { products } from "@/data/products";
 import { ArrowLeft, Trash2, Mail, Settings, ShieldAlert } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const product = products.find((p) => p.slug === slug);
+
+  if (!product || slug !== "lenden") {
+    return { title: "Account Deletion Request" };
+  }
+
+  return {
+    title: `Account Deletion Request — ${product.name}`,
+    description: `Instructions for deleting your ${product.name} account and purging associated data.`,
+    robots: {
+      index: false,
+      follow: true,
+    },
+    alternates: {
+      canonical: `/products/${slug}/delete-account`,
+    },
+  };
+}
 
 export default async function DeleteAccountPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

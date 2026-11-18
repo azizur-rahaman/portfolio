@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 interface SectionHeaderProps {
   index: string;
   title: string;
+  headingId?: string;
   actionLabel?: string;
   actionHref?: string;
   external?: boolean;
@@ -12,6 +13,7 @@ interface SectionHeaderProps {
 export default function SectionHeader({
   index,
   title,
+  headingId,
   actionLabel,
   actionHref,
   external = false,
@@ -25,7 +27,10 @@ export default function SectionHeader({
         >
           {index}
         </span>
-        <h2 className="text-[25.6px] leading-[32px] font-medium tracking-[-0.02em] text-[var(--color-text-primary)]">
+        <h2
+          id={headingId}
+          className="text-[25.6px] leading-[32px] font-medium tracking-[-0.02em] text-[var(--color-text-primary)]"
+        >
           {title}
         </h2>
       </div>

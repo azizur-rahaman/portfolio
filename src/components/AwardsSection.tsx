@@ -16,10 +16,11 @@ export default function AwardsSection() {
 
   return (
     <section id="awards" aria-labelledby="heading-awards" className="pb-16 sm:pb-20">
-      <div id="heading-awards" className="sr-only">
-        Awards and Achievements
-      </div>
-      <SectionHeader index="04" title="Awards & Achievements" />
+      <SectionHeader
+        index="04"
+        title="Awards & Achievements"
+        headingId="heading-awards"
+      />
 
       <div className="flex items-center justify-between gap-4 mb-4">
         <h3 className="inline-flex items-center gap-1.5 text-[12px] font-medium uppercase tracking-wider text-[var(--color-text-secondary)]">

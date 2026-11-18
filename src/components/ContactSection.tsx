@@ -7,10 +7,7 @@ export default function ContactSection() {
 
   return (
     <section id="contact" aria-labelledby="heading-contact" className="pb-16 sm:pb-20">
-      <div id="heading-contact" className="sr-only">
-        Contact
-      </div>
-      <SectionHeader index="06" title="Contact" />
+      <SectionHeader index="06" title="Contact" headingId="heading-contact" />
 
       <p className="text-[15px] leading-[24px] text-[var(--color-text-secondary)] max-w-xl">
         {contact.prompt}

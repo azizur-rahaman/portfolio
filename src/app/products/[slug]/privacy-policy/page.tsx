@@ -1,7 +1,29 @@
+import type { Metadata } from "next";
 import { products } from "@/data/products";
 import { ArrowLeft, Shield } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const product = products.find((p) => p.slug === slug);
+
+  if (!product || slug !== "lenden") {
+    return { title: "Privacy Policy" };
+  }
+
+  return {
+    title: `Privacy Policy — ${product.name}`,
+    description: `Privacy Policy for ${product.name} detailing data collection, contact access, security measures, and user deletion controls.`,
+    alternates: {
+      canonical: `/products/${slug}/privacy-policy`,
+    },
+  };
+}
 
 export default async function PrivacyPolicyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -94,28 +116,28 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Security</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Security</h2>
               <p className="leading-relaxed">
                 We implement bank-grade security measures, including 4-digit PIN protection for transactions and encrypted transport for all data. However, please note that no method of electronic transmission or storage is 100% secure.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Children&apos;s Privacy</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Children&apos;s Privacy</h2>
               <p className="leading-relaxed">
                 Lenden does not knowingly collect personally identifiable information from children under 13. If you are a parent or guardian and you are aware that your child has provided us with personal data, please contact us.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Changes to This Policy</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Changes to This Policy</h2>
               <p className="leading-relaxed">
                 We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Last Updated&quot; date.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Contact Us</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Contact Us</h2>
               <p className="leading-relaxed">
                 If you have any questions or concerns about this Privacy Policy, please contact us at:
               </p>

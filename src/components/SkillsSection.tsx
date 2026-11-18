@@ -29,10 +29,7 @@ const SKILL_CATEGORY_ICONS: Record<SkillGroup["icon"], LucideIcon> = {
 export default function SkillsSection() {
   return (
     <section id="skills" aria-labelledby="heading-skills" className="pb-16 sm:pb-20">
-      <div id="heading-skills" className="sr-only">
-        Technical Skills
-      </div>
-      <SectionHeader index="05" title="Skills" />
+      <SectionHeader index="05" title="Skills" headingId="heading-skills" />
 
       <div className="divide-y divide-[var(--color-border-muted)]">
         {portfolioData.skillGroups.map((group) => {

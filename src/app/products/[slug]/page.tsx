@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -26,6 +27,7 @@ import TopNav from "@/components/TopNav";
 import Footer from "@/components/Footer";
 import SectionHeader from "@/components/SectionHeader";
 import { AppIcon } from "@/components/AppIcon";
+import JsonLd from "@/components/JsonLd";
 
 const IconMap: Record<string, LucideIcon> = {
   ShieldCheck,
@@ -43,6 +45,51 @@ const IconMap: Record<string, LucideIcon> = {
   Paperclip,
 };
 
+export function generateStaticParams() {
+  return products.map((product) => ({
+    slug: product.slug,
+  }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const product = products.find((p) => p.slug === slug);
+
+  if (!product) {
+    return {
+      title: "Product Not Found",
+    };
+  }
+
+  const ogImage = product.banner ?? product.logo;
+
+  return {
+    title: `${product.name} — ${product.tagline}`,
+    description: product.description,
+    keywords: [product.name, product.category, ...product.techStack, "Azizur Rahaman"],
+    alternates: {
+      canonical: `/products/${product.slug}`,
+    },
+    openGraph: {
+      title: `${product.name} — ${product.tagline}`,
+      description: product.description,
+      url: `/products/${product.slug}`,
+      type: "article",
+      ...(ogImage ? { images: [{ url: ogImage, alt: product.name }] } : {}),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.name} — ${product.tagline}`,
+      description: product.description,
+      ...(ogImage ? { images: [ogImage] } : {}),
+    },
+  };
+}
+
 export default async function ProductDetailPage({
   params,
 }: {
@@ -55,8 +102,26 @@ export default async function ProductDetailPage({
     notFound();
   }
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: product.name,
+    description: product.description,
+    applicationCategory: product.category,
+    operatingSystem: product.platforms?.join(", ") ?? "Android",
+    url: `https://azizurrahaman.com/products/${product.slug}`,
+    ...(product.link ? { downloadUrl: product.link } : {}),
+    ...(product.logo ? { image: `https://azizurrahaman.com${product.logo}` } : {}),
+    author: {
+      "@type": "Person",
+      name: "Azizur Rahaman",
+      url: "https://azizurrahaman.com",
+    },
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
+      <JsonLd data={structuredData} />
       <TopNav />
 
       <main id="main-content" className="editorial-container flex-1 pt-8 pb-20">
@@ -194,6 +259,7 @@ export default async function ProductDetailPage({
                     src={product.banner}
                     alt={`${product.name} feature overview`}
                     fill
+                    sizes="(max-width: 768px) 100vw, 672px"
                     className="object-cover"
                     priority
                   />
@@ -215,6 +281,7 @@ export default async function ProductDetailPage({
                         src={screenshot}
                         alt={`${product.name} screenshot ${index + 1}`}
                         fill
+                        sizes="(max-width: 640px) 100vw, 336px"
                         className="object-cover"
                       />
                     </div>
@@ -243,9 +310,9 @@ export default async function ProductDetailPage({
                       className="text-[var(--color-text-primary)] shrink-0"
                       aria-hidden="true"
                     />
-                    <h2 className="text-[15px] font-medium text-[var(--color-text-primary)]">
+                    <h3 className="text-[15px] font-medium text-[var(--color-text-primary)]">
                       {feature.title}
-                    </h2>
+                    </h3>
                   </div>
                   <p className="text-[13px] leading-[21px] text-[var(--color-text-secondary)]">
                     {feature.description}

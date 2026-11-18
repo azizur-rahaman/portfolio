@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { products } from "@/data/products";
@@ -6,10 +7,43 @@ import ProductCard from "@/components/ProductCard";
 import TopNav from "@/components/TopNav";
 import Footer from "@/components/Footer";
 import SectionHeader from "@/components/SectionHeader";
+import JsonLd from "@/components/JsonLd";
+
+export const metadata: Metadata = {
+  title: "Products & Shipped Apps",
+  description:
+    "Explore 12 production mobile and enterprise web products engineered by Azizur Rahaman—including A Cloud Planet, Lenden, Zabihaty, GhorLagbee, weightnote, Bhalo Kaj, and Classmates.",
+  alternates: {
+    canonical: "/products",
+  },
+  openGraph: {
+    title: "Products & Shipped Apps — Azizur Rahaman",
+    description:
+      "12 production mobile and enterprise SaaS products built with Flutter, Next.js, Spring Boot, and Clean Architecture.",
+    url: "/products",
+  },
+};
 
 export default function ProductsPage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Products & Shipped Apps — Azizur Rahaman",
+    url: "https://azizurrahaman.com/products",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: products.map((product, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: product.name,
+        url: `https://azizurrahaman.com/products/${product.slug}`,
+      })),
+    },
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
+      <JsonLd data={structuredData} />
       <TopNav />
 
       <main id="main-content" className="editorial-container flex-1 pt-8 pb-20">
@@ -43,12 +77,10 @@ export default function ProductsPage() {
         </header>
 
         <section aria-labelledby="heading-products">
-          <div id="heading-products" className="sr-only">
-            Products
-          </div>
           <SectionHeader
             index="01"
             title={`All Applications (${products.length})`}
+            headingId="heading-products"
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

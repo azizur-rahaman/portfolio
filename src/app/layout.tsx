@@ -20,28 +20,62 @@ const notoSansBengali = Noto_Sans_Bengali({
   display: "swap",
 });
 
+const SITE_URL = "https://azizurrahaman.com";
+
 export const metadata: Metadata = {
-  title: "Azizur Rahaman — Product Engineer (Flutter, Next.js, Spring Boot)",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Azizur Rahaman — Product Engineer (Flutter, Next.js, Spring Boot)",
+    template: "%s — Azizur Rahaman",
+  },
   description:
     "Product Engineer with 5+ years of software engineering experience building scalable digital products across mobile, web, backend, and cloud using Flutter, Next.js, Spring Boot, and Java.",
   keywords: [
     "Azizur Rahaman",
     "Product Engineer",
     "Flutter Developer",
-    "Next.js",
+    "Next.js Developer",
     "Spring Boot",
     "Java",
     "Clean Architecture",
+    "Algoel",
     "Dhaka",
     "Bangladesh",
   ],
-  authors: [{ name: "Azizur Rahaman", url: "https://azizurrahaman.com" }],
+  authors: [{ name: "Azizur Rahaman", url: SITE_URL }],
+  creator: "Azizur Rahaman",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/images/avatar.png",
+  },
   openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
+    siteName: "Azizur Rahaman",
+    title: "Azizur Rahaman — Product Engineer",
+    description:
+      "Product Engineer with 5+ years of experience shipping scalable products across mobile, web, backend, and cloud (110K+ total downloads).",
+  },
+  twitter: {
+    card: "summary_large_image",
     title: "Azizur Rahaman — Product Engineer",
     description:
       "Product Engineer with 5+ years of experience shipping scalable products across mobile, web, backend, and cloud (110K+ downloads).",
-    type: "website",
-    url: "https://azizurrahaman.com",
   },
 };
 

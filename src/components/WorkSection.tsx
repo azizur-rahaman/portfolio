@@ -8,12 +8,10 @@ import { AppIcon } from "./AppIcon";
 export default function WorkSection() {
   return (
     <section id="work" aria-labelledby="heading-work" className="pb-16 sm:pb-20">
-      <div id="heading-work" className="sr-only">
-        Selected Work and Shipped Apps
-      </div>
       <SectionHeader
         index="01"
         title="Work"
+        headingId="heading-work"
         actionLabel="All 12 products"
         actionHref="/products"
       />
