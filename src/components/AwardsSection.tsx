@@ -1,49 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { Award, ChevronLeft, ChevronRight, Trophy, X } from "lucide-react";
+import { Award, Trophy } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
 import SectionHeader from "./SectionHeader";
-
-const COLLAGE_SPANS = [
-  "col-span-2 sm:col-span-6 row-span-2", // 1: National Signature Hackathon (landscape hero)
-  "col-span-1 sm:col-span-6 row-span-1", // 2: GBV Hackathon (landscape)
-  "col-span-1 sm:col-span-6 row-span-1", // 3: IUT Hackathon 2025 (landscape)
-  "col-span-1 sm:col-span-4 row-span-2", // 4: IUT Hackathon 2024 (portrait)
-  "col-span-1 sm:col-span-4 row-span-2", // 5: NCPC 2023 (portrait/square)
-  "col-span-1 sm:col-span-4 row-span-1", // 6: Science Week Champion (landscape)
-  "col-span-1 sm:col-span-4 row-span-1", // 7: Science Week 2nd Champion (landscape)
-];
+import AwardLightbox from "./AwardLightbox";
 
 export default function AwardsSection() {
   const { awards } = portfolioData;
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  useEffect(() => {
-    if (selectedIndex === null) return;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setSelectedIndex(null);
-      } else if (e.key === "ArrowRight") {
-        setSelectedIndex((prev) =>
-          prev === null ? null : (prev + 1) % awards.length
-        );
-      } else if (e.key === "ArrowLeft") {
-        setSelectedIndex((prev) =>
-          prev === null ? null : (prev - 1 + awards.length) % awards.length
-        );
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedIndex, awards.length]);
-
   const hoveredAward = hoveredIndex !== null ? awards[hoveredIndex] : null;
-  const selectedAward = selectedIndex !== null ? awards[selectedIndex] : null;
 
   return (
     <section id="awards" aria-labelledby="heading-awards" className="pb-16 sm:pb-20">
@@ -136,7 +105,7 @@ export default function AwardsSection() {
                 src={hoveredAward.image}
                 alt=""
                 fill
-                sizes="260px"
+                sizes="250px"
                 style={{ objectPosition: hoveredAward.imagePosition ?? "50% 30%" }}
                 className="object-cover"
               />
@@ -153,124 +122,11 @@ export default function AwardsSection() {
         )}
       </div>
 
-      {/* Bento Photo Collage Gallery */}
-      <div className="mt-8">
-        <div
-          aria-label="Awards photo collage"
-          className="grid grid-cols-2 sm:grid-cols-12 auto-rows-[120px] sm:auto-rows-[132px] gap-2.5"
-        >
-          {awards.map((award, idx) => {
-            const isHighlighted = hoveredIndex === idx;
-
-            return (
-              <button
-                key={`${award.image}-${idx}`}
-                type="button"
-                onMouseEnter={() => setHoveredIndex(idx)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                onClick={() => setSelectedIndex(idx)}
-                aria-label={`View photo: ${award.title} — ${award.event} (${award.year})`}
-                className={`group relative rounded-xl overflow-hidden border transition-all duration-[var(--motion-duration-instant)] cursor-pointer text-left bg-[var(--color-surface-raised)] ${
-                  COLLAGE_SPANS[idx] ?? "col-span-1 sm:col-span-4 row-span-1"
-                } ${
-                  isHighlighted
-                    ? "border-[var(--color-text-primary)] ring-2 ring-[var(--color-text-primary)]/20 z-10"
-                    : "border-[var(--color-border-default)] hover:border-[var(--color-text-primary)]"
-                }`}
-              >
-                <Image
-                  src={award.image}
-                  alt={`${award.title} — ${award.event} (${award.year})`}
-                  fill
-                  sizes="(max-width: 640px) 50vw, 360px"
-                  style={{ objectPosition: award.imagePosition ?? "50% 30%" }}
-                  className="object-cover transition-transform duration-[var(--motion-duration-fast)] group-hover:scale-[1.03]"
-                />
-
-                <div
-                  className={`absolute inset-x-0 bottom-0 p-2.5 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-[var(--motion-duration-instant)] ${
-                    isHighlighted ? "opacity-100" : "opacity-0 group-hover:opacity-100"
-                  }`}
-                >
-                  <p className="text-[12px] font-medium leading-[16px] text-white truncate">
-                    {award.title}
-                  </p>
-                  <p className="text-[11px] leading-[15px] text-white/80 truncate">
-                    {award.event} · {award.year}
-                  </p>
-                </div>
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Lightbox Modal for Full Photo Viewing */}
-      {selectedAward && selectedIndex !== null && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={`${selectedAward.title} — ${selectedAward.event}`}
-          onClick={() => setSelectedIndex(null)}
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-2xl rounded-2xl overflow-hidden bg-[var(--color-surface-strong)] border border-[var(--color-border-default)] shadow-2xl"
-          >
-            <div className="relative w-full aspect-[4/3] bg-black">
-              <Image
-                src={selectedAward.image}
-                alt={`${selectedAward.title} — ${selectedAward.event} (${selectedAward.year})`}
-                fill
-                sizes="(max-width: 768px) 100vw, 672px"
-                className="object-contain"
-                priority
-              />
-
-              <button
-                type="button"
-                onClick={() => setSelectedIndex(null)}
-                aria-label="Close photo preview"
-                className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/70 text-white hover:bg-black flex items-center justify-center transition-colors cursor-pointer"
-              >
-                <X size={18} aria-hidden="true" />
-              </button>
-
-              <button
-                type="button"
-                onClick={() =>
-                  setSelectedIndex((selectedIndex - 1 + awards.length) % awards.length)
-                }
-                aria-label="Previous achievement photo"
-                className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 text-white hover:bg-black flex items-center justify-center transition-colors cursor-pointer"
-              >
-                <ChevronLeft size={18} aria-hidden="true" />
-              </button>
-
-              <button
-                type="button"
-                onClick={() => setSelectedIndex((selectedIndex + 1) % awards.length)}
-                aria-label="Next achievement photo"
-                className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/70 text-white hover:bg-black flex items-center justify-center transition-colors cursor-pointer"
-              >
-                <ChevronRight size={18} aria-hidden="true" />
-              </button>
-            </div>
-
-            <div className="p-4 flex items-center justify-between gap-4 bg-[var(--color-surface-strong)]">
-              <div>
-                <p className="text-[15px] font-medium text-[var(--color-text-primary)]">
-                  {selectedAward.title} — {selectedAward.event}
-                </p>
-                <p className="font-mono text-[12px] text-[var(--color-text-secondary)] mt-0.5">
-                  {selectedAward.year} · {selectedIndex + 1} / {awards.length}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      <AwardLightbox
+        awards={awards}
+        selectedIndex={selectedIndex}
+        onSelectIndex={setSelectedIndex}
+      />
     </section>
   );
 }
