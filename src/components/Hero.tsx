@@ -56,7 +56,7 @@ function LinkedInMark() {
 }
 
 export default function Hero() {
-  const { profile } = portfolioData;
+  const { profile, stats } = portfolioData;
 
   return (
     <section aria-label="Introduction" className="pt-10 pb-16 sm:pt-14 sm:pb-20">
@@ -200,6 +200,28 @@ export default function Hero() {
           <span>Download CV</span>
         </a>
       </nav>
+
+      {/* Key Experience & Impact Stats */}
+      <dl
+        aria-label="Key metrics"
+        className="mt-10 pt-8 border-t border-[var(--color-border-muted)] grid grid-cols-3 gap-4 sm:gap-0 sm:divide-x sm:divide-[var(--color-border-muted)]"
+      >
+        {stats.map((stat, idx) => (
+          <div
+            key={stat.label}
+            className={`flex flex-col-reverse justify-end ${
+              idx === 0 ? "sm:pr-6" : idx === 1 ? "sm:px-6" : "sm:pl-6"
+            }`}
+          >
+            <dt className="text-[12px] sm:text-[13px] leading-[18px] text-[var(--color-text-secondary)] mt-1.5">
+              {stat.label}
+            </dt>
+            <dd className="text-[26px] sm:text-[32px] leading-[1.1] font-semibold tracking-[-0.02em] text-[var(--color-text-primary)] tabular-nums m-0">
+              {stat.value}
+            </dd>
+          </div>
+        ))}
+      </dl>
     </section>
   );
 }

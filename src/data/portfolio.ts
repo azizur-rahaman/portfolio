@@ -90,7 +90,27 @@ export interface SkillGroup {
   items: string[];
 }
 
+export interface StatItem {
+  value: string;
+  label: string;
+}
+
 export const portfolioData = {
+  stats: [
+    {
+      value: "5+",
+      label: "Years of Professional Experience",
+    },
+    {
+      value: "10+",
+      label: "Years of Programming",
+    },
+    {
+      value: "110K+",
+      label: "Total Product Downloads",
+    },
+  ] satisfies StatItem[],
+
   profile: {
     name: "Azizur Rahaman",
     shortName: "Azizur",
