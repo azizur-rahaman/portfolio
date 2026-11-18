@@ -8,49 +8,61 @@ import {
   GraduationCap,
   Layers,
   LayoutGrid,
-  Mail,
   Server,
   Smartphone,
   Trophy,
 } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
+import { BRAND_SKILL_ICONS } from "@/data/skillIcons";
 import LocalTime from "./LocalTime";
 
-function GitHubMark() {
+function GitHubLogo() {
   return (
     <svg
-      width="14"
-      height="14"
+      width="17"
+      height="17"
       viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.75"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      fill="currentColor"
       aria-hidden="true"
+      className="shrink-0"
     >
-      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-      <path d="M9 18c-4.51 2-5-2-7-2" />
+      <path d={BRAND_SKILL_ICONS.GitHub.path} />
     </svg>
   );
 }
 
-function LinkedInMark() {
+function LinkedInLogo() {
   return (
     <svg
-      width="14"
-      height="14"
+      width="17"
+      height="17"
       viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.75"
-      strokeLinecap="round"
-      strokeLinejoin="round"
       aria-hidden="true"
+      className="shrink-0"
     >
-      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-      <rect width="4" height="12" x="2" y="9" />
-      <circle cx="4" cy="4" r="2" />
+      <rect width="24" height="24" rx="4" fill="#0A66C2" />
+      <path
+        fill="#FFFFFF"
+        d="M7.05 9.65H4.38v8.6h2.67v-8.6ZM5.72 5.4a1.55 1.55 0 1 0 0 3.1 1.55 1.55 0 0 0 0-3.1Zm13.9 7.82c0-2.55-1.36-3.74-3.18-3.74-1.47 0-2.13.81-2.49 1.38v-1.2h-2.67c.04.78 0 8.59 0 8.59h2.67v-4.8c0-.26.02-.52.1-.7.21-.52.68-1.06 1.48-1.06 1.04 0 1.46.8 1.46 1.97v4.59h2.63v-5.03Z"
+      />
+    </svg>
+  );
+}
+
+function GmailLogo() {
+  return (
+    <svg
+      width="17"
+      height="17"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className="shrink-0"
+    >
+      <path fill="#4285F4" d="M22 6.25V18a1.5 1.5 0 0 1-1.5 1.5H18V9.9l-6 4.5-6-4.5v9.6H3.5A1.5 1.5 0 0 1 2 18V6.25a2.25 2.25 0 0 1 3.6-1.8L12 9.25l6.4-4.8A2.25 2.25 0 0 1 22 6.25Z" />
+      <path fill="#34A853" d="M18 9.9v9.6h2.5A1.5 1.5 0 0 0 22 18V6.9l-4 3Z" />
+      <path fill="#FBBC05" d="M2 6.9V18a1.5 1.5 0 0 0 1.5 1.5H6V9.9l-4-3Z" />
+      <path fill="#EA4335" d="M18 9.9V4.45L12 8.95 6 4.45V9.9l6 4.5 6-4.5Z" />
+      <path fill="#C5221F" d="M2 6.25v.65l4 3V4.45a2.25 2.25 0 0 0-4 1.8Zm20 0a2.25 2.25 0 0 0-4-1.8V9.9l4-3v-.65Z" />
     </svg>
   );
 }
@@ -146,65 +158,10 @@ export default function Hero() {
         </p>
       </div>
 
-      {/* Quick Action Links */}
-      <nav
-        aria-label="Social and profile links"
-        className="flex flex-wrap items-center gap-x-5 gap-y-2.5 mt-8 pt-2"
-      >
-        <a
-          href={profile.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[var(--color-text-primary)] hover:text-[var(--color-text-secondary)] transition-colors duration-[var(--motion-duration-instant)] py-1"
-        >
-          <GitHubMark />
-          <span>GitHub</span>
-          <ArrowUpRight size={12} strokeWidth={1.75} className="text-[var(--color-text-secondary)]" aria-hidden="true" />
-        </a>
-
-        <a
-          href={profile.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[var(--color-text-primary)] hover:text-[var(--color-text-secondary)] transition-colors duration-[var(--motion-duration-instant)] py-1"
-        >
-          <LinkedInMark />
-          <span>LinkedIn</span>
-          <ArrowUpRight size={12} strokeWidth={1.75} className="text-[var(--color-text-secondary)]" aria-hidden="true" />
-        </a>
-
-        <Link
-          href="/products"
-          className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[var(--color-text-primary)] hover:text-[var(--color-text-secondary)] transition-colors duration-[var(--motion-duration-instant)] py-1"
-        >
-          <LayoutGrid size={14} strokeWidth={1.75} aria-hidden="true" />
-          <span>All 12 Products</span>
-          <ArrowUpRight size={12} strokeWidth={1.75} className="text-[var(--color-text-secondary)]" aria-hidden="true" />
-        </Link>
-
-        <a
-          href={`mailto:${profile.email}`}
-          className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[var(--color-text-primary)] hover:text-[var(--color-text-secondary)] transition-colors duration-[var(--motion-duration-instant)] py-1"
-        >
-          <Mail size={14} strokeWidth={1.75} aria-hidden="true" />
-          <span>Email</span>
-          <ArrowUpRight size={12} strokeWidth={1.75} className="text-[var(--color-text-secondary)]" aria-hidden="true" />
-        </a>
-
-        <a
-          href={profile.cvPath}
-          download={profile.cvFilename}
-          className="inline-flex items-center gap-1.5 text-[13px] font-medium text-[var(--color-text-primary)] hover:text-[var(--color-text-secondary)] transition-colors duration-[var(--motion-duration-instant)] py-1"
-        >
-          <FileDown size={14} strokeWidth={1.75} aria-hidden="true" />
-          <span>Download CV</span>
-        </a>
-      </nav>
-
       {/* Key Experience & Impact Stats */}
       <dl
         aria-label="Key metrics"
-        className="mt-10 pt-8 border-t border-[var(--color-border-muted)] grid grid-cols-3 gap-4 sm:gap-0 sm:divide-x sm:divide-[var(--color-border-muted)]"
+        className="mt-8 pt-7 border-t border-[var(--color-border-muted)] grid grid-cols-3 gap-4 sm:gap-0 sm:divide-x sm:divide-[var(--color-border-muted)]"
       >
         {stats.map((stat, idx) => (
           <div
@@ -222,6 +179,61 @@ export default function Hero() {
           </div>
         ))}
       </dl>
+
+      {/* Quick Action Links */}
+      <nav
+        aria-label="Social and profile links"
+        className="w-full grid grid-cols-2 sm:flex sm:flex-wrap sm:items-center gap-2.5 mt-7"
+      >
+        <a
+          href={profile.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="sm:flex-auto inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] text-[14px] font-medium text-[var(--color-text-primary)] hover:border-[var(--color-text-primary)] transition-colors duration-[var(--motion-duration-instant)] whitespace-nowrap"
+        >
+          <GitHubLogo />
+          <span>GitHub</span>
+          <ArrowUpRight size={13} strokeWidth={1.75} className="text-[var(--color-text-secondary)]" aria-hidden="true" />
+        </a>
+
+        <a
+          href={profile.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="sm:flex-auto inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] text-[14px] font-medium text-[var(--color-text-primary)] hover:border-[var(--color-text-primary)] transition-colors duration-[var(--motion-duration-instant)] whitespace-nowrap"
+        >
+          <LinkedInLogo />
+          <span>LinkedIn</span>
+          <ArrowUpRight size={13} strokeWidth={1.75} className="text-[var(--color-text-secondary)]" aria-hidden="true" />
+        </a>
+
+        <Link
+          href="/products"
+          className="sm:flex-auto inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] text-[14px] font-medium text-[var(--color-text-primary)] hover:border-[var(--color-text-primary)] transition-colors duration-[var(--motion-duration-instant)] whitespace-nowrap"
+        >
+          <LayoutGrid size={17} strokeWidth={1.85} className="text-[#4F46E5] shrink-0" aria-hidden="true" />
+          <span>All 12 Products</span>
+          <ArrowUpRight size={13} strokeWidth={1.75} className="text-[var(--color-text-secondary)]" aria-hidden="true" />
+        </Link>
+
+        <a
+          href={`mailto:${profile.email}`}
+          className="sm:flex-auto inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] text-[14px] font-medium text-[var(--color-text-primary)] hover:border-[var(--color-text-primary)] transition-colors duration-[var(--motion-duration-instant)] whitespace-nowrap"
+        >
+          <GmailLogo />
+          <span>Email</span>
+          <ArrowUpRight size={13} strokeWidth={1.75} className="text-[var(--color-text-secondary)]" aria-hidden="true" />
+        </a>
+
+        <a
+          href={profile.cvPath}
+          download={profile.cvFilename}
+          className="col-span-2 sm:col-span-1 sm:flex-auto inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-[var(--color-surface-raised)] border border-[var(--color-border-default)] text-[14px] font-medium text-[var(--color-text-primary)] hover:border-[var(--color-text-primary)] transition-colors duration-[var(--motion-duration-instant)] whitespace-nowrap"
+        >
+          <FileDown size={17} strokeWidth={1.85} className="text-[var(--color-status-live)] shrink-0" aria-hidden="true" />
+          <span>Download CV</span>
+        </a>
+      </nav>
     </section>
   );
 }

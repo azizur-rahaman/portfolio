@@ -73,6 +73,8 @@ export interface AwardItem {
   title: string;
   event: string;
   year: string;
+  image: string;
+  imagePosition?: string;
 }
 
 export interface SkillGroup {
@@ -478,39 +480,53 @@ export const portfolioData = {
 
   awards: [
     {
-      title: "2nd Runner-Up",
-      event: "Technology-Facilitated GBV Hackathon",
-      year: "2026",
-    },
-    {
       title: "1st Runner-Up",
       event: "National Signature Hackathon",
       year: "2025",
+      image: "/images/awards/1-national-signature-hackathon.jpg",
+      imagePosition: "50% 28%",
+    },
+    {
+      title: "2nd Runner-Up",
+      event: "Technology-Facilitated GBV Hackathon",
+      year: "2026",
+      image: "/images/awards/2-gbv-hackathon.jpg",
+      imagePosition: "50% 25%",
     },
     {
       title: "7th Place",
       event: "IUT Hackathon",
       year: "2025",
+      image: "/images/awards/3-iut-hackathon-2025.jpg",
+      imagePosition: "50% 22%",
     },
     {
       title: "4th Place",
       event: "IUT Hackathon",
       year: "2024",
+      image: "/images/awards/4-iut-hackathon-2024.jpg",
+      imagePosition: "50% 45%",
     },
     {
       title: "Finalist",
       event: "National Collegiate Programming Contest (NCPC)",
       year: "2023",
-    },
-    {
-      title: "District 2nd Champion",
-      event: "National Science & Technology Week",
-      year: "2021",
+      image: "/images/awards/5-ncpc-2023.jpg",
+      imagePosition: "50% 25%",
     },
     {
       title: "Champion (District)",
       event: "National Science & Technology Week",
       year: "2020",
+      image: "/images/awards/6-science-week-champion.jpg",
+      imagePosition: "50% 35%",
+    },
+    {
+      title: "District 2nd Champion",
+      event: "National Science & Technology Week",
+      year: "2021",
+      image: "/images/awards/7-science-week-2nd-champion.jpg",
+      imagePosition: "50% 25%",
     },
   ] satisfies AwardItem[],
 
